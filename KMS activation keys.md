@@ -37,3 +37,27 @@ https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activati
 10. Windows 10/11 Enterprise N - DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
 11. Windows 10/11 Enterprise G - YYVX9-NTFWV-6MDM3-9PT4T-4M68B
 12. Windows 10/11 Enterprise G N - 44RPN-FTY23-9VTTB-MP9BX-T84FV
+
+# Steps to activate via KMS keys
+1. To remove any existing product key (in case you used a trial key), enter and run the command - slmgr.vbs /upk
+2. Clear the product key from registry - slmgr.vbs /cpky
+3. Reboot the client/server
+4. Get current edition - Dism /Online /Get-CurrentEdition
+>https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
+
+![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
+
+5. slmgr -skms <ip of kms server>
+6. Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
+7. slmgr -ipk <KMS key that fits your client/server OS>
+8. slmgr /ato
+
+
+
+
+
+
+
+
+
+
