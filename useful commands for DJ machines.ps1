@@ -1,4 +1,4 @@
-#1 Enable TLS1.2
+#1 Enable TLS 1.2
 
 
 If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
