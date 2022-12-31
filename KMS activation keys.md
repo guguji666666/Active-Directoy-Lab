@@ -1,3 +1,8 @@
+# KMS host build up
+>https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host
+
+>https://www.youtube.com/watch?v=L1YNqxhZBp0
+
 # KMS keys from Microsoft 
 https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys
 
