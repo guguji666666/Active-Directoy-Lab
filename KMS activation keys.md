@@ -43,9 +43,10 @@ https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activati
 2. Clear the product key from registry - slmgr.vbs /cpky
 3. Reboot the client/server
 4. Get current edition - Dism /Online /Get-CurrentEdition
->https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
-
-![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
+   
+    ![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
+    
+>Reference link : https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
 
 5. slmgr -skms <ip of kms server>
 6. Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
