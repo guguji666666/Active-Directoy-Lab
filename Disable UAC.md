@@ -14,14 +14,16 @@
 # Option 2 : Disable UAC via powershell locally (non domain-joined)
 
 >Disable UAC
-
+```cmd
 %windir%\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+```
 
 The command only closes the prompt for UAC, the user still doesn't have administrator permissions.
 
 >Enable UAC
-
+```cmd
 %windir%\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
+```
 
 # Option 3 : For domain joined devices , using GPO for bulk management
 
