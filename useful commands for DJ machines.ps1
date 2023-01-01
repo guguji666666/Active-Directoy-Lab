@@ -1,6 +1,5 @@
 #1 Enable TLS 1.2
 
-
 If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
 {
     New-Item 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319' -Force | Out-Null
@@ -33,9 +32,6 @@ Write-Host 'TLS 1.2 has been enabled. You must restart the Windows Server for th
 
 
 
-
-
-
 #2 Install 7zip
 
 $dlurl = 'https://7-zip.org/' + (Invoke-WebRequest -UseBasicParsing -Uri 'https://7-zip.org/' | Select-Object -ExpandProperty Links | Where-Object {($_.outerHTML -match 'Download')-and ($_.href -like "a/*") -and ($_.href -like "*-x64.exe")} | Select-Object -First 1 | Select-Object -ExpandProperty href)
@@ -48,7 +44,6 @@ Remove-Item $installerPath
 
 
 
-
 #3 Install notepad ++ with latest version
 
 $LocalTempDir = $env:TEMP
@@ -56,6 +51,7 @@ $href = ((Invoke-WebRequest -Uri 'https://notepad-plus-plus.org/downloads/').Lin
 $downloadUrl = ((Invoke-WebRequest "https://notepad-plus-plus.org/$href").Links | Where-Object { $_.innerHTML -match 'installer' -and $_.href -match 'x64.exe' }).href
 Invoke-RestMethod $downloadUrl -OutFile "$LocalTempDir/np++.exe"
 start-process -FilePath "$LocalTempDir\np++.exe" -ArgumentList '/S' -Verb runas -Wait
+
 
 
 #4 Install chrome
@@ -73,6 +69,7 @@ Set-PSRepository PSGallery -InstallationPolicy Trusted
 Install-Module MSOnline
 
 Install-Module AzureAD
+
 
 
 #6 Install Edge
