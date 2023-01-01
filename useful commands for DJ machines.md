@@ -1,4 +1,4 @@
-#1 Enable TLS 1.2
+# Enable TLS 1.2
 
 ```powershell
 If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
@@ -32,7 +32,7 @@ New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'TLS 1.2 has been enabled. You must restart the Windows Server for the changes to take affect.' -ForegroundColor Cyan
 ```
 
-#2 Install 7zip
+# Install 7zip
 
 ```powershell
 $dlurl = 'https://7-zip.org/' + (Invoke-WebRequest -UseBasicParsing -Uri 'https://7-zip.org/' | Select-Object -ExpandProperty Links | Where-Object {($_.outerHTML -match 'Download')-and ($_.href -like "a/*") -and ($_.href -like "*-x64.exe")} | Select-Object -First 1 | Select-Object -ExpandProperty href)
@@ -44,7 +44,7 @@ Start-Process -FilePath $installerPath -Args "/S" -Verb RunAs -Wait
 Remove-Item $installerPath
 ```
 
-#3 Install notepad ++ with latest version
+# Install notepad ++ with latest version
 
 ```powershell
 $LocalTempDir = $env:TEMP
@@ -55,13 +55,13 @@ start-process -FilePath "$LocalTempDir\np++.exe" -ArgumentList '/S' -Verb runas 
 ```
 
 
-#4 Install chrome
+# Install chrome
 
 ```powershell
 $LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller"); & "$LocalTempDir\$ChromeInstaller" /silent /install; $Process2Monitor = "ChromeInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
 ```
 
-#5 Install AAD powershell module
+# Install AAD powershell module
 
 ```powershell
 Install-PackageProvider NuGet -Force
@@ -73,7 +73,7 @@ Install-Module MSOnline
 Install-Module AzureAD
 ```
 
-#6 Install Edge
+# Install Edge(not stable)
 
 ```powershell
 md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
