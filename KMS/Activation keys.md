@@ -71,12 +71,12 @@ Windows 10/11 Enterprise G N                   44RPN-FTY23-9VTTB-MP9BX-T84FV
 ```sh
 slmgr.vbs /upk
 ```
-#### 2.Clear the product key from registry
+#### 2. Clear the product key from registry
 ```sh
 slmgr.vbs /cpky
 ```
-#### 3.Reboot the client/server
-#### 4.Get current edition
+#### 3. Reboot the client/server
+#### 4. Get current edition
 ```sh
 Dism /Online /Get-CurrentEdition
 ```
@@ -86,11 +86,13 @@ Dism /Online /Get-CurrentEdition
 ```
 Reference link
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
+```
 
 #### 5. Define the IP of KMS server
 ```sh
 slmgr -skms <ip of kms server>
 ```
+
 #### 6. Set the Edition of the OS
 ```sh
 Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
