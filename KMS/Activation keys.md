@@ -1,11 +1,13 @@
 # KMS host build up
->https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host
+```
+https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host
+https://www.youtube.com/watch?v=L1YNqxhZBp0
+```
 
->https://www.youtube.com/watch?v=L1YNqxhZBp0
-
-# KMS keys from Microsoft 
+# KMS keys from Microsoft
+```
 https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys
-
+```
 
 ## Windows Server 2022
 ```
@@ -85,10 +87,22 @@ Dism /Online /Get-CurrentEdition
 Reference link
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
 
-5. slmgr -skms <ip of kms server>
-6. Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
-7. slmgr -ipk <KMS key that fits your client/server OS>
-8. slmgr /ato
+#### 5. Define the IP of KMS server
+```sh
+slmgr -skms <ip of kms server>
+```
+#### 6. Set the Edition of the OS
+```sh
+Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
+```
+#### 7. Apply the activation key
+```sh
+slmgr -ipk <KMS key that fits your client/server OS>
+```
+#### Then,
+```sh
+slmgr /ato
+```
 
 
 
