@@ -65,7 +65,7 @@ Windows 10/11 Enterprise G N                   44RPN-FTY23-9VTTB-MP9BX-T84FV
 ```
 
 
-## Steps to activate via KMS keys
+## Commands to activate via KMS keys
 #### 1. To remove any existing product key (in case you used a trial key),
 ```sh
 slmgr.vbs /upk
