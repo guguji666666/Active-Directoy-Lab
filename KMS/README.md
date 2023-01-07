@@ -74,6 +74,8 @@ slmgr.vbs /upk
 ```sh
 slmgr.vbs /cpky
 ```
+![image](https://user-images.githubusercontent.com/96930989/211155694-b4d51e6b-66a1-456a-9937-48bff4104086.png)
+
 #### 3. Reboot the client/server
 #### 4. Get current edition
 ```sh
