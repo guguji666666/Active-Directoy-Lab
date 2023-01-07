@@ -102,7 +102,6 @@ slmgr -skms <ip of kms server>
 
 #### 5. Set the key according to the Edition of the OS
 
-For Windows server:
 ```sh
 Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
 ```
@@ -111,7 +110,7 @@ Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that f
 Input `Y` when the process completes to reboot the machine.
 
 #### 6. Reboot the client/server
-#### 7. Go to activation settings, check if the client/server has been activated
+#### 7. Go to activation settings, check if the server has been activated
 
 Sample for Windows server 2022
 
@@ -171,7 +170,7 @@ slmgr /ato
 ![image](https://user-images.githubusercontent.com/96930989/211157009-95e99508-a975-4046-a338-3230c7d8801b.png)
 
 #### 7. Reboot the client/server
-#### 8. Go to activation settings, check if the client/server has been activated
+#### 8. Go to activation settings, check if the client has been activated
 
 Sample
 
