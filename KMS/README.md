@@ -70,6 +70,8 @@ Windows 10/11 Enterprise G N                   44RPN-FTY23-9VTTB-MP9BX-T84FV
 ```sh
 slmgr.vbs /upk
 ```
+![image](https://user-images.githubusercontent.com/96930989/211156590-1ae96886-697a-443b-9e45-394b5b105b6d.png)
+
 #### 2. Clear the product key from registry
 ```sh
 slmgr.vbs /cpky
