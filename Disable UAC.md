@@ -1,4 +1,4 @@
-## Option 1: Disable UAC via UI on local machine (non domain-joined)
+## Option 1 : Disable UAC via UI on local machine (non domain-joined)
 
 1. Type uac into the Windows Start menu.
 ![image](https://user-images.githubusercontent.com/96930989/210131956-205f4746-1b54-46e6-9e16-7ced5e5f585d.png)
