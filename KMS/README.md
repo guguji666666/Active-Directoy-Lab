@@ -91,6 +91,7 @@ More details could be found in [Get Windows Editions](https://learn.microsoft.co
 ```sh
 slmgr -skms <ip of kms server>
 ```
+![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
 #### 6. Set the Edition of the OS
 ```sh
