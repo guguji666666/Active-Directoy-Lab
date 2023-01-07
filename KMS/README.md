@@ -110,12 +110,16 @@ For Windows Client
 ```sh
 slmgr -ipk <KMS key that fits your client/server OS>
 ```
-#### Then,
+
+#### 8. Then,
 ```sh
 slmgr /ato
 ```
 
+#### 9. Go to activation settings, check if the client/server has been activated
 
+Sample for Windows server 2022
+![image](https://user-images.githubusercontent.com/96930989/211156234-6706cb20-9637-407b-85bc-84538e36a8f3.png)
 
 
 
