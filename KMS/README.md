@@ -175,5 +175,5 @@ slmgr /ato
 
 Sample
 
-![image](https://user-images.githubusercontent.com/96930989/211156678-dae43318-f7dc-45ea-9077-3ab8fdfaa02c.png)
+![image](https://user-images.githubusercontent.com/96930989/211157076-d251602e-34b6-4e16-9fb0-6abd3556ee64.png)
 
