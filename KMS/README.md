@@ -83,8 +83,15 @@ slmgr.vbs /cpky
 ```sh
 Dism /Online /Get-CurrentEdition
 ```
-   
+
+Sample for windows server
+
 ![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
+    
+Sample for windows client
+
+![image](https://user-images.githubusercontent.com/96930989/211156625-06efea65-c550-4360-9d61-d17ceb1fb5c2.png)
+
     
 If you want to check the list of Windows editions that an image `can be changed to` ,run the command below:
 ```sh
