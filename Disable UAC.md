@@ -13,22 +13,22 @@
 
 # Option 2 : Disable UAC via powershell locally (non domain-joined)
 
->Disable UAC
+Disable UAC
 ```cmd
 %windir%\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
 ```
 
 The command only closes the prompt for UAC, the user still doesn't have administrator permissions.
 
->Enable UAC
+Enable UAC
 ```cmd
 %windir%\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
 ```
 
 # Option 3 : For domain joined devices , using GPO for bulk management
 
->Link : https://www.prajwaldesai.com/disable-user-account-control-using-group-policy/
+Link : [Disable User Account Control Using Group Policy](https://www.prajwaldesai.com/disable-user-account-control-using-group-policy/)
 
->GPO path - Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
+GPO path - Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
 
 ![image](https://user-images.githubusercontent.com/96930989/210132027-7bfbf233-7ce4-4d0a-a551-c0edbcd8b7cf.png)
