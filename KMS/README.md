@@ -1,13 +1,12 @@
-# KMS host build up
-```
-https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host
-https://www.youtube.com/watch?v=L1YNqxhZBp0
-```
+# Build KMS host
+[How to create a Key Management Services (KMS) activation host](https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host)
+
+[Youtube tutorial to build KMS server(Chinese)](https://www.youtube.com/watch?v=L1YNqxhZBp0)
 
 # KMS keys from Microsoft
-```
-https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys
-```
+
+[(KMS) client activation and product keys](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys)
+
 
 ## Windows Server 2022
 ```
@@ -83,10 +82,8 @@ Dism /Online /Get-CurrentEdition
    
 ![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
     
-```
-Reference link
-https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition
-```
+[Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
+
 
 #### 5. Define the IP of KMS server
 ```sh
