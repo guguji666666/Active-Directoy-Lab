@@ -78,8 +78,7 @@ slmgr.vbs /cpky
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155694-b4d51e6b-66a1-456a-9937-48bff4104086.png)
 
-#### 3. Reboot the client/server
-#### 4. Get current edition
+#### 3. Get current edition
 ```sh
 Dism /Online /Get-CurrentEdition
 ```
@@ -95,13 +94,13 @@ Dism /Online /Get-TargetEditions
 
 More details could be found in [Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
 
-#### 5. Define the IP of KMS server
+#### 4. Define the IP of KMS server
 ```sh
 slmgr -skms <ip of kms server>
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
-#### 6. Set the key according to the Edition of the OS
+#### 5. Set the key according to the Edition of the OS
 
 For Windows server:
 ```sh
@@ -111,6 +110,7 @@ Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that f
 
 Input `Y` when the process completes to reboot the machine.
 
+#### 6. Reboot the client/server
 #### 7. Go to activation settings, check if the client/server has been activated
 
 Sample for Windows server 2022
@@ -133,8 +133,7 @@ slmgr.vbs /cpky
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155694-b4d51e6b-66a1-456a-9937-48bff4104086.png)
 
-#### 3. Reboot the client/server
-#### 4. Get current edition
+#### 3. Get current edition
 ```sh
 Dism /Online /Get-CurrentEdition
 ```
@@ -152,23 +151,27 @@ Dism /Online /Get-TargetEditions
 More details could be found in [Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
 
 
-#### 5. Define the IP of KMS server
+#### 4. Define the IP of KMS server
 ```sh
 slmgr -skms <ip of kms server>
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
-#### 6. Apply the activation key
+#### 5. Apply the activation key
 ```sh
 slmgr -ipk <KMS key that fits your client/server OS>
 ```
+![image](https://user-images.githubusercontent.com/96930989/211156865-e1e1baed-0e2b-4e82-84cc-cca645fb3bd0.png)
 
-#### 8. Then,
+
+#### 6. Then,
 ```sh
 slmgr /ato
 ```
+![image](https://user-images.githubusercontent.com/96930989/211157009-95e99508-a975-4046-a338-3230c7d8801b.png)
 
-#### 9. Go to activation settings, check if the client/server has been activated
+#### 7. Reboot the client/server
+#### 8. Go to activation settings, check if the client/server has been activated
 
 Sample
 
