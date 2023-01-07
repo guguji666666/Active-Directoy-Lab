@@ -65,7 +65,7 @@ Windows 10/11 Enterprise G N                   44RPN-FTY23-9VTTB-MP9BX-T84FV
 ```
 
 
-## Commands to activate via KMS keys
+## Commands to activate Windows server
 #### 1. To remove any existing product key (in case you used a trial key),
 ```sh
 slmgr.vbs /upk
@@ -87,8 +87,59 @@ Dism /Online /Get-CurrentEdition
 Sample for windows server
 
 ![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
-    
-Sample for windows client
+
+If you want to check the list of Windows editions that an image `can be changed to` ,run the command below:
+```sh
+Dism /Online /Get-TargetEditions
+```
+
+More details could be found in [Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
+
+#### 5. Define the IP of KMS server
+```sh
+slmgr -skms <ip of kms server>
+```
+![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
+
+#### 6. Set the key according to the Edition of the OS
+
+For Windows server:
+```sh
+Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
+```
+![image](https://user-images.githubusercontent.com/96930989/211155975-ca5c1416-9fda-4e36-b8d3-5534e440385f.png)
+
+Input `Y` when the process completes to reboot the machine.
+
+#### 7. Go to activation settings, check if the client/server has been activated
+
+Sample for Windows server 2022
+
+![image](https://user-images.githubusercontent.com/96930989/211156234-6706cb20-9637-407b-85bc-84538e36a8f3.png)
+
+
+
+## Commands to activate Windows client
+
+#### 1. To remove any existing product key (in case you used a trial key),
+```sh
+slmgr.vbs /upk
+```
+![image](https://user-images.githubusercontent.com/96930989/211156590-1ae96886-697a-443b-9e45-394b5b105b6d.png)
+
+#### 2. Clear the product key from registry
+```sh
+slmgr.vbs /cpky
+```
+![image](https://user-images.githubusercontent.com/96930989/211155694-b4d51e6b-66a1-456a-9937-48bff4104086.png)
+
+#### 3. Reboot the client/server
+#### 4. Get current edition
+```sh
+Dism /Online /Get-CurrentEdition
+```
+
+Sample
 
 ![image](https://user-images.githubusercontent.com/96930989/211156625-06efea65-c550-4360-9d61-d17ceb1fb5c2.png)
 
@@ -107,20 +158,7 @@ slmgr -skms <ip of kms server>
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
-#### 6. Set the key according to the Edition of the OS
-
-For Windows server:
-```sh
-Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
-```
-![image](https://user-images.githubusercontent.com/96930989/211155975-ca5c1416-9fda-4e36-b8d3-5534e440385f.png)
-
-Input `Y` when the process completes to reboot the machine.
-
-For Windows Client
-
-
-#### 7. Apply the activation key
+#### 6. Apply the activation key
 ```sh
 slmgr -ipk <KMS key that fits your client/server OS>
 ```
@@ -132,13 +170,7 @@ slmgr /ato
 
 #### 9. Go to activation settings, check if the client/server has been activated
 
-Sample for Windows server 2022
-![image](https://user-images.githubusercontent.com/96930989/211156234-6706cb20-9637-407b-85bc-84538e36a8f3.png)
+Sample
 
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/96930989/211156678-dae43318-f7dc-45ea-9077-3ab8fdfaa02c.png)
 
