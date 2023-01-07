@@ -93,10 +93,19 @@ slmgr -skms <ip of kms server>
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
-#### 6. Set the Edition of the OS
+#### 6. Set the key according to the Edition of the OS
+
+For Windows server:
 ```sh
-Dism /online /Set-Edition:<edition name> /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
+Dism /online /Set-Edition:serverstandard /AcceptEula /ProductKey:<KMS key that fits your client/server OS> 
 ```
+![image](https://user-images.githubusercontent.com/96930989/211155975-ca5c1416-9fda-4e36-b8d3-5534e440385f.png)
+
+Input `Y` when the process completes to reboot the machine.
+
+For Windows Client
+
+
 #### 7. Apply the activation key
 ```sh
 slmgr -ipk <KMS key that fits your client/server OS>
