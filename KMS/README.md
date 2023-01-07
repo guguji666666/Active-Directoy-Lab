@@ -82,7 +82,7 @@ Dism /Online /Get-CurrentEdition
    
 ![image](https://user-images.githubusercontent.com/96930989/210148047-fddc4de4-0faf-462e-872c-1fbf7b47e5ce.png)
     
-[Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
+More details could be found in [Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
 
 
 #### 5. Define the IP of KMS server
