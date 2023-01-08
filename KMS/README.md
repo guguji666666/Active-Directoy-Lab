@@ -160,7 +160,7 @@ Sample for Windows 10 Pro
 
 ![image](https://user-images.githubusercontent.com/96930989/211155820-5e4cb75e-bb30-4942-9589-999418c11d2d.png)
 
-#### 5. Apply the activation key
+#### 5. Set the activation key
 ```sh
 slmgr -ipk <KMS key that fits your client/server OS>
 ```
@@ -170,10 +170,12 @@ Sample for Windows 10 Pro
 ![image](https://user-images.githubusercontent.com/96930989/211156865-e1e1baed-0e2b-4e82-84cc-cca645fb3bd0.png)
 
 
-#### 6. Then,
+#### 6. Execute the activation
 ```sh
 slmgr /ato
 ```
+Sample for Windows 10 Pro
+
 ![image](https://user-images.githubusercontent.com/96930989/211157009-95e99508-a975-4046-a338-3230c7d8801b.png)
 
 #### 7. Reboot the client/server
