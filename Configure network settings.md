@@ -74,7 +74,7 @@ Set new gateway
 New-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 -NextHop <IP of new gateway>
 ```
 
-## 5. Set Primary and Secondary DNS Server Addresses
+## 6. Set Primary and Secondary DNS Server Addresses
 Get current settings for DNS servers
 ```powershell
 Get-DNSClientServerAddress -InterfaceAlias <name of adpater>
