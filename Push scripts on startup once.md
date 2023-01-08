@@ -82,6 +82,7 @@ Modify the settings following the picture below
 ![image](https://user-images.githubusercontent.com/96930989/211192175-a0c5f849-a0f9-4fce-8c9c-42cd54a170d4.png)
 
 Go to `Actions > New`
+
 ![image](https://user-images.githubusercontent.com/96930989/211192185-09abd4a8-6b4e-4170-a830-b86be56cc3ee.png)
 
 Paste the network path of `bat` file we created before , and click `Ok`
