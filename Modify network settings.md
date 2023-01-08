@@ -76,12 +76,12 @@ New-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 
 
 ## 5. Set Primary and Secondary DNS Server Addresses
 ```powershell
-Set-DNSClientServerAddress –<name of adpater> –ServerAddresses <IP addresses used for DNS>
+Set-DNSClientServerAddress -InterfaceAlias <name of adpater> -ServerAddresses <IP addresses used for DNS>
 ```
 
 Sample:
 
-Set-DNSClientServerAddress –InterfaceIndex 8 –ServerAddresses 192.168.2.11,10.1.2.11
+Set-DNSClientServerAddress -InterfaceAlias Ethernet0 -ServerAddresses 223.5.5.5,223.6.6.6
 
 
 
