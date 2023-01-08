@@ -61,7 +61,7 @@ Log in to a `domain controller` , launch Group Policy Management Console
 Create a new GPO object
 
 
-#### If GPO is supposed to be linked to OU that contains machine objects
+#### >If GPO is supposed to be linked to OU that contains `machine objects`
 
 Navigate to `Computer configuration > Preferences > Control Panel Settings > Scheduled Task`
 
@@ -69,7 +69,7 @@ Right click it `New > Immediate Task ( At least Windows 7)`
 
 ![image](https://user-images.githubusercontent.com/96930989/211192094-1b6e1185-f6c3-4a2d-8eab-3a5f3a1c02bb.png)
 
-#### If GPO is supposed to be linked to OU that contains user objects
+#### >If GPO is supposed to be linked to OU that contains `user objects`
 
 Navigate to `User configuration > Preferences > Control Panel Settings > Scheduled Task`
 
