@@ -65,7 +65,7 @@ Windows 10/11 Enterprise G N                   44RPN-FTY23-9VTTB-MP9BX-T84FV
 ```
 
 
-## Commands to activate Windows server
+## Commands to activate Windows server (run cmd as administrator)
 #### 1. To remove any existing product key (in case you used a trial key),
 ```sh
 slmgr.vbs /upk
@@ -119,7 +119,7 @@ Sample for Windows server 2022
 
 
 
-## Commands to activate Windows client
+## Commands to activate Windows client (run cmd as administrator)
 
 #### 1. To remove any existing product key (in case you used a trial key),
 ```sh
