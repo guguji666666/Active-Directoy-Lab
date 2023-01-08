@@ -8,8 +8,11 @@ Get-NetAdapter
 
 ## 2. You can change the adapter name
 ```powershell
-Rename-NetAdapter -Name Ethernet0 -NewName LAN
+Rename-NetAdapter -Name <current name of adapter> -NewName <the name you want to use>
 ```
+Sample
+
+Rename-NetAdapter -Name Ethernet0 -NewName LAN
 
 ## 3. View TCP/IP Network Adapter Settings
 ```powershell
