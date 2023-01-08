@@ -10,7 +10,7 @@ Get-NetAdapter
 ```powershell
 Rename-NetAdapter -Name <current name of adapter> -NewName <the name you want to use>
 ```
-Sample
+Sample for your reference
 ```powershell
 Rename-NetAdapter -Name Ethernet0 -NewName LAN
 ```
@@ -86,7 +86,7 @@ Set new primary and secondary DNS servers
 Set-DNSClientServerAddress -InterfaceAlias <name of adpater> -ServerAddresses <IP addresses used for DNS>
 ```
 
-Sample:
+Sample for your reference
 ```powershell
 Set-DNSClientServerAddress -InterfaceAlias Ethernet0 -ServerAddresses 223.5.5.5,223.6.6.6
 ```
