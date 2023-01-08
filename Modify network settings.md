@@ -24,23 +24,55 @@ Get-NetIPConfiguration -InterfaceAlias <name of adapter> -Detailed
 ```
 
 ## 3. Change Network Adapter from `DHCP` to `Static IP` Address
+
 Remove existing static IP address
 ```powershell
 Remove-NetIPAddress -InterfaceAlias <name of the adapter>
 ```
+![image](https://user-images.githubusercontent.com/96930989/211179599-cd5bd8b8-2fc8-414e-90df-1fdbbc8b59f0.png)
+
 
 Check if the IP has been removed successfully
 ```powershell
-Remove-NetIPAddress -InterfaceAlias <name of the adapter>
+Get-NetIpAddress -InterfaceAlias <name of the adapter>
 ```
 
 Set new static IP
 ```powershell
-New-Netipaddress -InterfaceAlias <name of the adapter> IpAddress <Ip you want to assign>
+New-Netipaddress -InterfaceAlias <name of the adapter> -IpAddress <Ip you want to assign>
 ```
 
-
 ## 4. Change Network Adapter from `Static IP` Address to `DHCP`
+
+Check existing static IP address
+```powershell
+Get-NetIpAddress -InterfaceAlias <name of the adapter>
+```
+
+Remove existing static IP address
+```powershell
+Remove-NetIPAddress -InterfaceAlias <name of the adapter>
+```
+![image](https://user-images.githubusercontent.com/96930989/211179599-cd5bd8b8-2fc8-414e-90df-1fdbbc8b59f0.png)
+
+## 5. Change the Default Gateway of the Network Adapter
+
+Check current gateway configured
+```powershell
+Get-netroute -InterfaceAlias <name of the adapter>
+```
+![image](https://user-images.githubusercontent.com/96930989/211179739-d5f0ab8f-6991-449b-bbd2-f17dba603198.png)
+
+Remove existing gateway setting
+```powershell
+Remove-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 -NextHop <IP of new gateway>
+```
+
+Set new gateway
+```powershell
+New-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 -NextHop <IP of new gateway>
+```
+
 
 ## 5. Set Primary and Secondary DNS Server Addresses
 ```powershell
