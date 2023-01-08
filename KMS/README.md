@@ -112,12 +112,9 @@ Input `Y` when the process completes to reboot the machine.
 Sample for Windows Server 2022
 ![image](https://user-images.githubusercontent.com/96930989/211176641-0f463b86-4db2-4baf-9d62-7c61394c8c6b.png)
 
-
-#### 6. Reboot the client/server
-#### 7. Go to activation settings, check if the server has been activated
+#### 6. Go to activation settings, check if the server has been activated
 
 Sample for Windows server 2022
-
 ![image](https://user-images.githubusercontent.com/96930989/211156234-6706cb20-9637-407b-85bc-84538e36a8f3.png)
 
 
