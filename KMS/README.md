@@ -91,6 +91,7 @@ If you want to check the list of Windows editions that an image `can be changed 
 ```sh
 Dism /Online /Get-TargetEditions
 ```
+![image](https://user-images.githubusercontent.com/96930989/211176560-e1e9edd3-d168-4b29-8332-3e30927eb38e.png)
 
 More details could be found in [Get Windows Editions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options?view=windows-11#get-currentedition)
 
