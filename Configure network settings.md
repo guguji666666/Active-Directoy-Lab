@@ -80,14 +80,14 @@ Get-DNSClientServerAddress -InterfaceAlias <name of adpater>
 ```
 ![image](https://user-images.githubusercontent.com/96930989/211179895-b3c97122-35e2-4a53-9e2c-1246c7635d6a.png)
 
-Set new DNS servers
+Set new primary and secondary DNS servers
 ```powershell
 Set-DNSClientServerAddress -InterfaceAlias <name of adpater> -ServerAddresses <IP addresses used for DNS>
 ```
 
 Sample:
-
+```powershell
 Set-DNSClientServerAddress -InterfaceAlias Ethernet0 -ServerAddresses 223.5.5.5,223.6.6.6
-
+```
 
 
