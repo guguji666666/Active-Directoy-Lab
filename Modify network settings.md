@@ -1,6 +1,6 @@
 # Powershell commands to modify network settings
 [Configuring Network Adapter Settings with PowerShell: IP Address, DNS, Default Gateway, Static Routes](https://askme4tech.com/how-configure-network-adapter-powershell)
-## 1. Get all netadpters with the interface name, state (Up/Down), MAC address and port speed.
+## 1. Get all existing netadpters on your machine
 ```powershell
 Get-NetAdapter
 ```
