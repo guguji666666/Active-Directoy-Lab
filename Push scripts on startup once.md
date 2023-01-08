@@ -95,3 +95,5 @@ Check the box of `Apply once and do not reapply`, then `Apply`, `OK`
 
 Save the GPO object and link it to the OU 
 
+Log out and log in the machines to apply that new GPO if required.
+
