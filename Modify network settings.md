@@ -65,7 +65,7 @@ Get-netroute -InterfaceAlias <name of the adapter>
 
 Remove existing gateway setting
 ```powershell
-Remove-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 -NextHop <IP of new gateway>
+Remove-NetRoute -InterfaceAlias <name of the adapter> -DestinationPrefix 0.0.0.0/0 -NextHop <IP of existing gateway>
 ```
 
 Set new gateway
