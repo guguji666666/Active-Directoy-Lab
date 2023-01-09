@@ -53,7 +53,9 @@ Create the folder if it does not already exist
 
 
 #### 4. Confirm if the the Edge module has been imported successfully
-To confirm the files loaded correctly, launch the `Group Policy Management Editor` from `Windows Administrative Tools` and expand `Computer Configuration > Policies > Administrative Templates > Microsoft Edge`. 
+To confirm the files loaded correctly, launch the `Group Policy Management Editor` from `Windows Administrative Tools`,
+
+Then expand `Computer Configuration > Policies > Administrative Templates > Microsoft Edge`
 
 You should see one or more Microsoft Edge nodes as shown below.
 
