@@ -20,13 +20,14 @@ Extract the file
 ![image](https://user-images.githubusercontent.com/96930989/211276657-3549dd76-5b80-4a39-81a0-7b9699eaaa42.png)
 
 #### 3. Configure Microsoft Edge policy settings
-[Configure Microsoft Edge policy settings on Windows device](shttps://learn.microsoft.com/en-us/deployedge/configure-microsoft-edge)
+
+[Configure Microsoft Edge policy settings on Windows devices](https://learn.microsoft.com/en-us/deployedge/configure-microsoft-edge)
 
 Navigate to the path we just extracted `MicrosoftEdgePolicyTemplates`
 
 Go to `MicrosoftEdgePolicyTemplates > Windows > admx`
 
-Copy the `msedge.admx` file to the path 
+Copy the `msedge.admx` file `to` the path 
 ```
 C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions
 ```
