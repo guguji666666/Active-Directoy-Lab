@@ -1,6 +1,6 @@
 ### Import Edge GPO module
 
-Some domain controller was built years ago wher the Edge is not indroduced, as a result, the GPO template does not contain the registry keys of Edge.
+Some domain controller was built years ago, at that point, the Edge is not indroduced, as a result, the GPO template does not contain the registry keys of Edge.
 This article shows the steps to import `Edge` GPO module to your domain controller.
 
 #### 1. Download Edge GPO module
