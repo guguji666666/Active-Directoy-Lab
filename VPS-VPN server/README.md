@@ -1,8 +1,10 @@
 ## Build your own VPS server running Linux
 ## Reference tutorial
 https://www.youtube.com/watch?v=3ivwonJuqyI&t=0s
-### Deployment steps
 
+https://github.com/p4gefau1t/trojan-go/releases
+
+### Deployment steps
 ```sh
 mkdir trojan
 ```
@@ -28,7 +30,64 @@ unzip trojan-go-linux-amd64.zip
 
 ![image](https://user-images.githubusercontent.com/96930989/212097960-e65c7759-7547-41ef-91b6-73359387ba7f.png)
 
-
 ```sh
+./trojan-go
+```
+![image](https://user-images.githubusercontent.com/96930989/212098669-5eb6fa54-bd74-4d63-9a15-12a0050e2a7c.png)
 
+Creat a new file `config.json`
+![image](https://user-images.githubusercontent.com/96930989/212099535-b0195e7a-7c2d-4f1a-ac5d-bda3ed5be855.png)
+
+Configuration in json file
+```
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "192.83.167.78",
+    "remote_port": 80,
+    "password": [
+        "your_awesome_password"
+    ],
+    "ssl": {
+        "cert": "server.crt",
+        "key": "server.key"
+    }
+}
+```
+
+We will get these two files later
+
+![image](https://user-images.githubusercontent.com/96930989/212102933-8eb8d90f-4a4d-4cc1-813d-7edc35308e55.png)
+
+
+Get cert from public CA
+
+Install acme
+```sh
+curl https://get.acme.sh | sh
+```
+Install socat
+```sh
+apt install socat
+```
+Add soft link
+```sh
+ln -s  /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
+```
+Register account
+```sh
+acme.sh --register-account -m my@example.com
+```
+UFW allow 80
+```sh
+ufw allow 80
+```
+Get cert
+```sh
+acme.sh  --issue -d <your domain name> --standalone -k ec-256
+```
+Install cert
+```sh
+acme.sh --installcert -d <your domain name> --ecc  --key-file   /root/trojan/server.key   --fullchain-file /root/trojan/server.crt 
 ```
