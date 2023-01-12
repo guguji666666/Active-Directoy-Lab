@@ -79,7 +79,7 @@ ln -s  /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
 ```
 Register account
 ```sh
-acme.sh --register-account -m my@example.com
+acme.sh --register-account -m <your mailbox>
 ```
 UFW allow 80
 ```sh
