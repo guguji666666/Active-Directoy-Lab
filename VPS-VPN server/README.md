@@ -67,6 +67,8 @@ Install acme
 ```sh
 curl https://get.acme.sh | sh
 ```
+![image](https://user-images.githubusercontent.com/96930989/212106028-657a0f1e-939c-4bf4-a2e0-f29685196be7.png)
+
 Install socat
 ```sh
 apt install socat
