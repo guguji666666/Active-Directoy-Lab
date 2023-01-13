@@ -186,26 +186,12 @@ Then try to access X-ui using
 Configure like the sample below
 ![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
 
-
+Install BBR to speed up, press `2` to install, server will be required to reboot after installation
 ```sh
-
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
+Once the server has been restarted, run the command again, press `7` to start BBR
 ```sh
-
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
-```sh
-
-```
-```sh
-```
-```sh
-```
-```sh
-
-```
-```sh
-
-```
-```sh
-
-```
+![image](https://user-images.githubusercontent.com/96930989/212332097-c30ae091-7309-4245-9b81-f79d344d1270.png)
