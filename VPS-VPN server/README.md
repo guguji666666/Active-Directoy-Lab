@@ -93,6 +93,8 @@ Get cert
 ```sh
 acme.sh  --issue -d <your domain name> --standalone -k ec-256
 ```
+![image](https://user-images.githubusercontent.com/96930989/212209032-18716305-eed1-46d5-988d-986ceed6724e.png)
+
 Install cert
 ```sh
 acme.sh --installcert -d <your domain name> --ecc  --key-file   /root/trojan/server.key   --fullchain-file /root/trojan/server.crt 
