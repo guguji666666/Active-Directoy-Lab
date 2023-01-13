@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=3ivwonJuqyI&t=0s
 
 https://github.com/p4gefau1t/trojan-go/releases
 
-### Deployment steps on ubuntu 2004LTS
+### Deployment trojan-go on ubuntu 2004LTS
 If the account used for RDP is not root account, then
 ```sh
 sudo su root
@@ -103,3 +103,6 @@ Run trojan-go again
 ./trojan-go
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212244288-017e0ab7-6b52-444d-8d4a-46a4e5568262.png)
+
+
+### Deployment steps on ubuntu 2004LTS
