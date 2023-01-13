@@ -105,4 +105,5 @@ Run trojan-go again
 ![image](https://user-images.githubusercontent.com/96930989/212244288-017e0ab7-6b52-444d-8d4a-46a4e5568262.png)
 
 
-### Deployment steps on ubuntu 2004LTS
+### [Deploy Xray on Ubuntu 2204LTS](https://www.youtube.com/watch?v=KGy4OMl02u8)
+
