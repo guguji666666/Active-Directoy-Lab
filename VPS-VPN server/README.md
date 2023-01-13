@@ -91,6 +91,10 @@ ufw allow 80
 
 Get cert
 ```sh
+acme.sh --set-default-ca --server letsencrypt
+```
+
+```sh
 acme.sh  --issue -d <your domain name> --standalone -k ec-256
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212209032-18716305-eed1-46d5-988d-986ceed6724e.png)
