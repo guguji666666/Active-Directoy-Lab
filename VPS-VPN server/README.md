@@ -98,3 +98,8 @@ Install cert
 ```sh
 acme.sh --installcert -d <your domain name> --ecc  --key-file   /root/trojan/server.key   --fullchain-file /root/trojan/server.crt 
 ```
+Run trojan-go again
+```sh
+./trojan-go
+```
+![image](https://user-images.githubusercontent.com/96930989/212244288-017e0ab7-6b52-444d-8d4a-46a4e5568262.png)
