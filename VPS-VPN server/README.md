@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=3ivwonJuqyI&t=0s
 
 https://github.com/p4gefau1t/trojan-go/releases
 
-### Deployment trojan-go on ubuntu 2004LTS
+### Deploy `trojan-go` on Ubuntu 2004 LTS
 If the account used for RDP is not root account, then
 ```sh
 sudo su root
