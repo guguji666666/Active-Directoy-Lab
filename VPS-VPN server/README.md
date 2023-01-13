@@ -190,8 +190,11 @@ Install BBR to speed up, press `2` to install, server will be required to reboot
 ```sh
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
+![image](https://user-images.githubusercontent.com/96930989/212332097-c30ae091-7309-4245-9b81-f79d344d1270.png)
+
 Once the server has been restarted, run the command again, press `7` to start BBR
 ```sh
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
-![image](https://user-images.githubusercontent.com/96930989/212332097-c30ae091-7309-4245-9b81-f79d344d1270.png)
+![image](https://user-images.githubusercontent.com/96930989/212332772-36e9102b-d61c-465e-84fa-64847f4f6808.png)
+
