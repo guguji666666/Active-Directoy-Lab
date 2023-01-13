@@ -81,6 +81,8 @@ Register account
 ```sh
 acme.sh --register-account -m <your mailbox>
 ```
+![image](https://user-images.githubusercontent.com/96930989/212207475-54f0ac78-f7d5-4a73-b9fe-3407a3bfeeaa.png)
+
 UFW allow 80
 ```sh
 ufw allow 80
