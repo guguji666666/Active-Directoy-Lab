@@ -87,6 +87,8 @@ UFW allow 80
 ```sh
 ufw allow 80
 ```
+![image](https://user-images.githubusercontent.com/96930989/212207660-64459f31-44b6-4e66-94cd-1458d859c757.png)
+
 Get cert
 ```sh
 acme.sh  --issue -d <your domain name> --standalone -k ec-256
