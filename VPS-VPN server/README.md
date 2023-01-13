@@ -80,7 +80,7 @@ Register account
 acme.sh --register-account -m <your mailbox>
 ```
 
-UFW allow 80
+If the ufw is enabled, then add the rule UFW allow 80, or you can disable ufw
 ```sh
 ufw allow 80
 ```
