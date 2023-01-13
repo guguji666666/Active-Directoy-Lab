@@ -54,7 +54,7 @@ Configuration in json file
 }
 ```
 
-We will get these two files later
+We will get these two files later after getting the cert and private key
 
 ![image](https://user-images.githubusercontent.com/96930989/212242830-7067c855-4c19-445a-ba0b-0dee310c708c.png)
 
