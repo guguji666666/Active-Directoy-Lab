@@ -105,5 +105,107 @@ Run trojan-go again
 ![image](https://user-images.githubusercontent.com/96930989/212244288-017e0ab7-6b52-444d-8d4a-46a4e5568262.png)
 
 
-### [Deploy Xray on Ubuntu 2204LTS](https://www.youtube.com/watch?v=KGy4OMl02u8)
+### [Deploy Xray on Debian](https://www.youtube.com/watch?v=KGy4OMl02u8)
+Check current system time
+```sh
+date
+```
+Modify system time
+```sh
+dpkg-reconfigure tzdata
+```
+Open the ports
+```sh
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+```
+```sh
+iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+```
+```sh
+iptables -I INPUT -p tcp --dport 8443 -j ACCEPT
+```
+Save iptable configuration
+```sh
+iptables-save
+```
+Reboot the machine
+```sh
+reboot
+```
+Get ssl cert
+```sh
+apt update -y 
+```
+```sh
+apt install -y curl
+```
+```sh
+apt install -y socat
+```
+```sh
+curl https://get.acme.sh | sh
+```
+```sh
+~/.acme.sh/acme.sh --register-account -m <you mailbox>
+```
+```sh
+~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+```
+```sh
+~/.acme.sh/acme.sh --issue -d <your FQDN of server> --standalone
+```
+Install cert
+```sh
+~/.acme.sh/acme.sh --installcert -d <your FQDN of server> --key-file /root/private.key --fullchain-file /root/cert.crt
+```
+![image](https://user-images.githubusercontent.com/96930989/212327231-b8766022-617a-482f-b3bc-95f81c659e88.png)
 
+Install X-UI panel
+```sh
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+```
+![image](https://user-images.githubusercontent.com/96930989/212327935-56c2162b-742c-4c4c-95ac-5a2146c5a14b.png)
+
+Access to X-UI, offer the username and password set in the previous step
+```
+<ip of server>:8443
+```
+Set the path of public key and private key, then click `Save` and reboot the `panel`
+```
+/root/cert.crt
+```
+```
+/root/private.key
+```
+![image](https://user-images.githubusercontent.com/96930989/212328792-eb065394-170f-4968-b836-beb003feb096.png)
+
+Then try to access X-ui using
+```
+<FQDN of server>:8443
+```
+Configure like the sample below
+![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
+
+
+```sh
+
+```
+```sh
+
+```
+```sh
+
+```
+```sh
+```
+```sh
+```
+```sh
+
+```
+```sh
+
+```
+```sh
+
+```
