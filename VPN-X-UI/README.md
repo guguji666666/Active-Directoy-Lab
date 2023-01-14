@@ -111,3 +111,7 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212332772-36e9102b-d61c-465e-84fa-64847f4f6808.png)
 
+
+Navigate to url <FQDN of your Azure VM>:8443, click the `QR code` here, scan it using `shadowrocket`
+  
+![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
