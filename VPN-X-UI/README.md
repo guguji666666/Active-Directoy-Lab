@@ -39,7 +39,7 @@ Install ufw
 ```sh
 apt install ufw
 ```
-Open the ports
+Open the ports if ufw is enabled, or you can disable ufw by running the command `ufw disable`
 ```sh
 ufw allow 80
 ```
