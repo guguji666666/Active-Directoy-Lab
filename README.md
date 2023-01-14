@@ -47,7 +47,7 @@ Start-Process -FilePath $installerPath -Args "/S" -Verb RunAs -Wait
 Remove-Item $installerPath
 ```
 
-### Install notepad ++ with latest version
+### Install notepad++ with latest version
 
 ```powershell
 $LocalTempDir = $env:TEMP
