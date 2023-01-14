@@ -1,6 +1,6 @@
 # Build Active Directoy
 
-## Scripts for quick deployment
+## Scripts for quick deployment (Push it via GPO when machine is newly joined)
 ### Enable TLS 1.2
 
 ```powershell
