@@ -106,6 +106,14 @@ Run trojan-go again
 
 
 ### [Deploy Xray on Debian 10/11](https://www.youtube.com/watch?v=KGy4OMl02u8)
+Switch to root accout
+```sh
+sudo su root
+```
+Switch directory
+```
+cd ~
+```
 Check current system time
 ```sh
 date
@@ -113,6 +121,10 @@ date
 Modify system time
 ```sh
 dpkg-reconfigure tzdata
+```
+Install ufw
+```sh
+apt install ufw
 ```
 Open the ports
 ```sh
