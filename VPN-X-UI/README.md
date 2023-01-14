@@ -41,6 +41,7 @@ ufw allow 443
 ```sh
 ufw allow 8443
 ```
+![image](https://user-images.githubusercontent.com/96930989/212443335-8194e2e2-fb4c-4be4-b74f-4759f2c7c98f.png)
 
 Get ssl cert fron public CA
 ```sh
