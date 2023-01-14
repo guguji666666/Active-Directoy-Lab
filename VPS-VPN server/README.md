@@ -175,6 +175,8 @@ Access to X-UI, offer the username and password set in the previous step
 ```
 <ip of server>:8443
 ```
+![image](https://user-images.githubusercontent.com/96930989/212440977-51d1124d-9bc4-470a-8799-2b86ecd82a7d.png)
+
 Set the path of public key and private key, then click `Save` and reboot the `panel`
 ```
 /root/cert.crt
