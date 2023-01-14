@@ -83,6 +83,9 @@ Install X-UI panel
 ```sh
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ```
+
+Set up `username`, `password` and `listening port`
+
 ![image](https://user-images.githubusercontent.com/96930989/212327935-56c2162b-742c-4c4c-95ac-5a2146c5a14b.png)
 
 Access to X-UI, offer the username and password set in the previous step
