@@ -39,3 +39,5 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 
 13. Click the OK button.
 
+14. Then you can go ahead to install Win11 on this machine.
+
