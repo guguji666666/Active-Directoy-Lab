@@ -137,7 +137,7 @@ ufw allow 443
 ufw allow 8443
 ```
 
-Get ssl cert
+Get ssl cert fron public CA
 ```sh
 apt update -y 
 ```
@@ -159,7 +159,7 @@ curl https://get.acme.sh | sh
 ```sh
 ~/.acme.sh/acme.sh --issue -d <your FQDN of server> --standalone
 ```
-Install cert
+Install ssl cert
 ```sh
 ~/.acme.sh/acme.sh --installcert -d <your FQDN of server> --key-file /root/private.key --fullchain-file /root/cert.crt
 ```
