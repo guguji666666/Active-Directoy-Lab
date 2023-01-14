@@ -51,7 +51,7 @@ ufw allow 8443
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212443335-8194e2e2-fb4c-4be4-b74f-4759f2c7c98f.png)
 
-Get ssl cert fron public CA
+Get SSL cert from public CA
 ```sh
 apt update -y 
 ```
@@ -73,7 +73,7 @@ curl https://get.acme.sh | sh
 ```sh
 ~/.acme.sh/acme.sh --issue -d <FQDN of the Azure VM> --standalone
 ```
-Install ssl cert
+Install SSL cert
 ```sh
 ~/.acme.sh/acme.sh --installcert -d <FQDN of the Azure VM> --key-file /root/private.key --fullchain-file /root/cert.crt
 ```
