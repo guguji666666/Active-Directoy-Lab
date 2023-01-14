@@ -62,11 +62,11 @@ curl https://get.acme.sh | sh
 ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 ```
 ```sh
-~/.acme.sh/acme.sh --issue -d <your FQDN of server> --standalone
+~/.acme.sh/acme.sh --issue -d <FQDN of the Azure VM> --standalone
 ```
 Install ssl cert
 ```sh
-~/.acme.sh/acme.sh --installcert -d <your FQDN of server> --key-file /root/private.key --fullchain-file /root/cert.crt
+~/.acme.sh/acme.sh --installcert -d <FQDN of the Azure VM> --key-file /root/private.key --fullchain-file /root/cert.crt
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212327231-b8766022-617a-482f-b3bc-95f81c659e88.png)
 
@@ -93,7 +93,7 @@ Set the path of public key and private key, then click `Save` and reboot the `pa
 
 Then try to access X-ui using
 ```
-<FQDN of server>:8443
+<FQDN of the Azure VM>:8443
 ```
 Configure like the sample below
 ![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
@@ -112,6 +112,6 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-
 ![image](https://user-images.githubusercontent.com/96930989/212332772-36e9102b-d61c-465e-84fa-64847f4f6808.png)
 
 
-Navigate to url <FQDN of your Azure VM>:8443, click the `QR code` here, scan it using `shadowrocket`
+Navigate to url <FQDN of the Azure VM>:8443, click the `QR code` here, scan it using `shadowrocket`
   
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
