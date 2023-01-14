@@ -105,7 +105,7 @@ Run trojan-go again
 ![image](https://user-images.githubusercontent.com/96930989/212244288-017e0ab7-6b52-444d-8d4a-46a4e5568262.png)
 
 
-### [Deploy Xray on Debian](https://www.youtube.com/watch?v=KGy4OMl02u8)
+### [Deploy Xray on Debian 10/11](https://www.youtube.com/watch?v=KGy4OMl02u8)
 Check current system time
 ```sh
 date
