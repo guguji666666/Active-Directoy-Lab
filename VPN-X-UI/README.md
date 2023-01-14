@@ -108,6 +108,10 @@ Press `No` and Enter
 
 Once the server has been restarted, run the command again, press `7` to start BBR
 ```sh
+sudo su root
+
+cd ~
+
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212332772-36e9102b-d61c-465e-84fa-64847f4f6808.png)
