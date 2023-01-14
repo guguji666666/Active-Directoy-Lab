@@ -116,22 +116,15 @@ dpkg-reconfigure tzdata
 ```
 Open the ports
 ```sh
-iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+ufw allow 80
 ```
 ```sh
-iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+ufw allow 443
 ```
 ```sh
-iptables -I INPUT -p tcp --dport 8443 -j ACCEPT
+ufw allow 8443
 ```
-Save iptable configuration
-```sh
-iptables-save
-```
-Reboot the machine
-```sh
-reboot
-```
+
 Get ssl cert
 ```sh
 apt update -y 
