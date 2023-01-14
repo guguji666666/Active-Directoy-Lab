@@ -1,4 +1,7 @@
-### [Deploy Xray on Debian 10/11](https://www.youtube.com/watch?v=KGy4OMl02u8)
+## Deploy X-UI on Azure VM running Debian 10/11
+### Video tutorial
+https://www.youtube.com/watch?v=KGy4OMl02u8
+
 Switch to root accout
 ```sh
 sudo su root
