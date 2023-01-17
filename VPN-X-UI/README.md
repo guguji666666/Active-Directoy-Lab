@@ -110,24 +110,12 @@ Then try to access X-ui using
 Configure like the sample below
 ![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
 
-Install BBR to speed up, press `2` to install, server will be required to reboot after installation
+#### Run BBR service
+Run command and press `4`
 ```sh
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
-Press `No` and Enter
-![image](https://user-images.githubusercontent.com/96930989/212332097-c30ae091-7309-4245-9b81-f79d344d1270.png)
+![image](https://user-images.githubusercontent.com/96930989/212890569-fd3fabf8-0104-4c69-a2c8-b8cf1d3bcf14.png)
 
-Once the server has been restarted, run the command again, press `7` to start BBR
-```sh
-sudo su root
-
-cd ~
-
-wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
-```
-![image](https://user-images.githubusercontent.com/96930989/212332772-36e9102b-d61c-465e-84fa-64847f4f6808.png)
-
-
-Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`
-  
+Finally, to use the VPN service, navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
