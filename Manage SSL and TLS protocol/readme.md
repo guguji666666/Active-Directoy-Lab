@@ -1,3 +1,6 @@
+## Reference doc
+[Managing SSL/TLS Protocols and Cipher Suites](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs#using-powershell-to-disable-ssl-30)
+
 ## Disable TLS 1.0
 
 ```powershell
@@ -180,19 +183,19 @@ $regSettings += Get-RegValue $regKey 'DisabledByDefault'
 
 $regKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server'
 $regSettings += Get-RegValue $regKey 'Enabled'
-$regSettings += Get-RegValue $regKey 'Disabling SSLv2'
+$regSettings += Get-RegValue $regKey 'DisabledByDefault'
 
 $regKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client'
 $regSettings += Get-RegValue $regKey 'Enabled'
-$regSettings += Get-RegValue $regKey 'Disabling SSLv2'
+$regSettings += Get-RegValue $regKey 'DisabledByDefault'
 
 $regKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server'
 $regSettings += Get-RegValue $regKey 'Enabled'
-$regSettings += Get-RegValue $regKey 'Disabling SSLv3'
+$regSettings += Get-RegValue $regKey 'DisabledByDefault'
 
 $regKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client'
 $regSettings += Get-RegValue $regKey 'Enabled'
-$regSettings += Get-RegValue $regKey 'Disabling SSLv3'
+$regSettings += Get-RegValue $regKey 'DisabledByDefault'
 
 $regSettings
 ```
