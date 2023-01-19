@@ -1,4 +1,4 @@
-## Disable TLS1.0 and TLS1.1
+## Disable TLS 1.0 and TLS 1.1
 
 ```powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -Force | Out-Null
