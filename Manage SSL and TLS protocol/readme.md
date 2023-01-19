@@ -15,7 +15,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'TLS 1.0 has been disabled.'
 ```
 
-## Disabling SSL 2.0
+## Disable SSL 2.0
 ```powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server' -Force | Out-Null
     
@@ -31,7 +31,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'SSL 2.0 has been disabled.'
 ```
 
-## Disabling SSL 3.0
+## Disable SSL 3.0
 ```powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server' -Force | Out-Null
     
@@ -47,7 +47,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'SSL 3.0 has been disabled.'
 ```
 
-## Enable TLS1.2
+## Enable TLS 1.2
 ```powershell
 If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
 {
