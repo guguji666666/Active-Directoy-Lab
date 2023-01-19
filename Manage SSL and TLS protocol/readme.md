@@ -1,4 +1,4 @@
-## Reference doc
+## MS doc
 [Managing SSL/TLS Protocols and Cipher Suites](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs#using-powershell-to-disable-ssl-30)
 
 ## Disable TLS 1.0
