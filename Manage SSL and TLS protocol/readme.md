@@ -97,7 +97,7 @@ Write-Host 'TLS 1.2 has been enabled. You must restart the Windows Server for th
 ```
 
 
-## Check all SSL and TLS enabled on your machine
+## Check all SSL and TLS protocol enabled on your machine
 ```powershell
 Function Get-RegValue {
     [CmdletBinding()]
