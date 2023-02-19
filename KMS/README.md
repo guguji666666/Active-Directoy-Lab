@@ -1,7 +1,13 @@
 # Build KMS host
+## 1. KMS on the server
 [How to create a Key Management Services (KMS) activation host](https://learn.microsoft.com/en-us/windows-server/get-started/kms-create-host)
 
 [Youtube tutorial to build KMS server(Chinese)](https://www.youtube.com/watch?v=L1YNqxhZBp0)
+## 2. You can also build KMS on your machine running openwrt (we use iStoreOS for sample)
+* Install iStoreOS on your ESXI7/8 following the instructions [Install iStoreOS on ESXI7/8](https://github.com/guguji666666/Openwrt-iStoreOS/tree/main/Installation%20in%20ESXI)
+* Install KMS from iStore
+![image](https://user-images.githubusercontent.com/96930989/219935823-71ed5021-b1d0-4dce-9a78-db89e168e0a7.png)
+
 
 # KMS keys from Microsoft
 
