@@ -141,5 +141,5 @@ Press `7` to start BBRplus
 Finally, to use the VPN service, navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
 
-We also recommend to create schedule taks to reboot the server everyday to make it works stably.
+We also recommend to create scheduled tasks to reboot the server everyday to make it works stably.
 
