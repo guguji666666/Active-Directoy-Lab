@@ -110,12 +110,24 @@ Then try to access X-ui using
 Configure like the sample below
 ![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
 
-#### Run BBR service
+#### Run BBR or BBRplus service
+##### Run BBR
 Run command and press `4`
 ```sh
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212890569-fd3fabf8-0104-4c69-a2c8-b8cf1d3bcf14.png)
+
+##### Run BBRplus
+Run command and press `2` for installation (it may take a while)
+![image](https://user-images.githubusercontent.com/96930989/220104822-261d9440-98c8-4815-96d9-6f93cb4d628b.png)
+
+Select `No` when this window pops up
+![image](https://user-images.githubusercontent.com/96930989/220105303-51826c65-55b9-4125-92a0-fa11cf78fab3.png)
+
+The VPS server needs to be restarted, press `Y`
+![image](https://user-images.githubusercontent.com/96930989/220105537-d6a49a85-423f-4079-82ad-511031829ea6.png)
+
 
 Finally, to use the VPN service, navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
