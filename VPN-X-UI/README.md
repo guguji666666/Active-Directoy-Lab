@@ -132,9 +132,14 @@ Once the VPS server has restarted, run the command
 ```
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
+
 Press `7` to start BBRplus
+
 ![image](https://user-images.githubusercontent.com/96930989/220106727-9237e8ed-48d2-4789-8a7f-c9d87f4a1b82.png)
 
 
 Finally, to use the VPN service, navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
+
+We also recommend to create schedule taks to reboot the server everyday to make it works stably.
+
