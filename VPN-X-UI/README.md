@@ -111,14 +111,14 @@ Configure like the sample below
 ![image](https://user-images.githubusercontent.com/96930989/212330149-419f8db5-eb3f-4346-8b26-1448003ea54e.png)
 
 #### Run BBR or BBRplus service
-##### Run BBR
+##### 1. Run BBR Standard
 Run command and press `4`
 ```sh
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
 ![image](https://user-images.githubusercontent.com/96930989/212890569-fd3fabf8-0104-4c69-a2c8-b8cf1d3bcf14.png)
 
-##### Run BBRplus
+##### 2. Run BBRplus
 Run command and press `2` for installation (it may take a while)
 ![image](https://user-images.githubusercontent.com/96930989/220104822-261d9440-98c8-4815-96d9-6f93cb4d628b.png)
 
