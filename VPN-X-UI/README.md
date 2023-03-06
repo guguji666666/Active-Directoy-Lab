@@ -1,6 +1,5 @@
 ## Deploy X-UI on Azure VM running Debian 10/11
-### Video tutorial
-https://www.youtube.com/watch?v=KGy4OMl02u8
+### [Video tutorial](https://www.youtube.com/watch?v=KGy4OMl02u8)
 ### Before we start
 1. Make sure you have a custom domain
 2. Add DNS `A` record in your DNS provider, point `FQDN` to your Azure VM's IP
