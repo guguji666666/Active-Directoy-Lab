@@ -8,3 +8,7 @@ Computer Configuration > Policies > Administrative Templates > Windows Component
 Select `go directly to home page`
 ![image](https://user-images.githubusercontent.com/96930989/224661914-5b8cac38-db98-4974-b03b-885dfbf8d2b9.png)
 
+Run powershell command on domain joined machine
+```powershell
+gpupdate /force
+```
