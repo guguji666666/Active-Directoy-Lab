@@ -1,7 +1,7 @@
 ## Error message
 #### The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer’s first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 #### Solution
-##### Local/Doamon GPO path
+##### Local/Domain GPO path
 ```
 Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer
 ```
