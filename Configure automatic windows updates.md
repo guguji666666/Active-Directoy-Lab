@@ -1,6 +1,4 @@
-# Configure auto updates for windows
-https://learn.microsoft.com/de-de/security-updates/windowsupdateservices/18127451#configure-automatic-updates
-
+# [Configure automatic windows updates](https://learn.microsoft.com/de-de/security-updates/windowsupdateservices/18127451#configure-automatic-updates)
 
 ## GPO path
 ```
