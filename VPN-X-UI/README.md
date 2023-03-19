@@ -151,7 +151,7 @@ Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, sca
 ![image](https://user-images.githubusercontent.com/96930989/226165026-3b68c0e6-c587-44bb-9186-43d08f1815ec.png)
 ##### d. Navigate to openclash running on your openwrt, add new subscription
 ![image](https://user-images.githubusercontent.com/96930989/226165109-8109734b-a574-48b6-9a15-fab16fb9d2dd.png)
-
+##### e. Once the vmess link is added and updated in openclash, you can switch to this new config file.
 
 
 
