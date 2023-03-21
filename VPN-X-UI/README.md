@@ -9,7 +9,7 @@ You bought Domain "abc.com" from DNS provider.
 Then you create FQDN "test.abc.com" for your Azure VM.
 DNS A record > points "test.abc.com" to the IP of Azure VM.
 ```
-3. How to get you custom domain
+3. How to get your custom domain
 * [Get custom domain from Aliyun](https://wanwang.aliyun.com/domain/)
 
 * [Manage your custom domain in Aliyun](https://account.aliyun.com/login/login.htm?oauth_callback=http%3A%2F%2Fdc.console.aliyun.com%2Fnext%2Findex%3Fspm%3D5176.2020520207.recommends.ddomain.606c4c12SpdlTJ#/domain/list/all-domain)
