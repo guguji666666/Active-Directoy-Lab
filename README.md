@@ -64,19 +64,25 @@ start-process -FilePath "$LocalTempDir\np++.exe" -ArgumentList '/S' -Verb runas 
 $LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller"); & "$LocalTempDir\$ChromeInstaller" /silent /install; $Process2Monitor = "ChromeInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
 ```
 
-#### Install AAD powershell module
+#### Install common AAD powershell modules
 
 ```powershell
 Install-PackageProvider NuGet -Force
 
 Set-PSRepository PSGallery -InstallationPolicy Trusted
 
+Set-ExecutionPolicy RemoteSigned
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+  
+Install-Module Az -Force
+
 Install-Module MSOnline
 
 Install-Module AzureAD
 ```
 
-#### Install Edge (the command is deprecated)
+#### Install Edge browser (the command is deprecated) > go to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) to download and install
 
 ```powershell
 md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
