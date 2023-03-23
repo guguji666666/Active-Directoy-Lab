@@ -76,7 +76,7 @@ Install-Module MSOnline
 Install-Module AzureAD
 ```
 
-#### Install Edge (not stable)
+#### Install Edge (deprecated)
 
 ```powershell
 md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
