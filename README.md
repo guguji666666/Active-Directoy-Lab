@@ -82,7 +82,7 @@ Install-Module MSOnline
 Install-Module AzureAD
 ```
 
-#### Install Edge browser (the command is deprecated) > go to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) to download and install
+#### Install Edge browser (the command is deprecated) > Navigate to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) for manual download and installation
 
 ```powershell
 md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
