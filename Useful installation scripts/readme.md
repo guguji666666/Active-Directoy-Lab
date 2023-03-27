@@ -63,10 +63,14 @@ $LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object
 
 ##  Install AAD powershell module
 
-```powershell
+```powershell  
 Install-PackageProvider NuGet -Force
 
 Set-PSRepository PSGallery -InstallationPolicy Trusted
+
+Set-ExecutionPolicy RemoteSigned
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Install-Module MSOnline
 
