@@ -7,3 +7,6 @@ AIDA64
 HWMonitor
 
 ![image](https://user-images.githubusercontent.com/96930989/227783270-7e791778-e45b-4259-b939-2b434461bb1b.png)
+
+
+123
