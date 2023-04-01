@@ -8,7 +8,7 @@
 ### 2. Make it shared folder
 ![image](https://user-images.githubusercontent.com/96930989/211191637-33587410-944a-4559-a621-503ce04430a4.png)
 
-### 3. Define the permission of `users & computer objects` on this shared folder
+### 3. Define the permission of `Users & Computer objects` on this shared folder
 ![image](https://user-images.githubusercontent.com/96930989/211191666-af604dde-ecda-4c5a-9a88-9525eb004915.png)
 
 ### 4. Note the `Network Path` generated for this shared folder , we need it later.
