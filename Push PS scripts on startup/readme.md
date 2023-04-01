@@ -11,13 +11,14 @@
 ### 3. Define the permission of `Users & Computer objects` on this shared folder
 ![image](https://user-images.githubusercontent.com/96930989/211191666-af604dde-ecda-4c5a-9a88-9525eb004915.png)
 
-### 4. Note the `Network Path` generated for this shared folder , we need it later.
+### 4. Note the `Network Path` generated for this shared folder , we will need it later.
 ![image](https://user-images.githubusercontent.com/96930989/211191691-c5234512-64fd-4101-8c6e-0c17e58a41d3.png)
 
 Sample : `\\WIN-EVUDHQG2VII\SharedFile`
 
-## Create powershell scripts and bat files (calling powershell exe)
-### 1. Paste the powershell script you want to push into this folder
+## Create powershell scripts and bat files (used to call powershell exe)
+
+### 1. Paste the powershell script there
 ![image](https://user-images.githubusercontent.com/96930989/211191792-bcd554e8-ce5e-4c6e-8190-a2ade020101b.png)
 
 Note the `network path` of these powershell scripts
@@ -57,12 +58,12 @@ Sample
 
 ### 3. Create GPO to push bat files that triggers powershell scripts
 
-Log in to a `domain controller` , launch Group Policy Management Console
+Log in to a `domain controller` as enterprise/domain admin, launch Group Policy Management Console
 
 Create a new GPO object
 
 
-#### >If GPO is supposed to be linked to OU that contains `machine objects`
+#### If GPO is supposed to be linked to OU that contains `Machine objects`
 
 Navigate to `Computer configuration > Preferences > Control Panel Settings > Scheduled Task`
 
@@ -70,7 +71,7 @@ Right click it `New > Immediate Task ( At least Windows 7)`
 
 ![image](https://user-images.githubusercontent.com/96930989/211192094-1b6e1185-f6c3-4a2d-8eab-3a5f3a1c02bb.png)
 
-#### >If GPO is supposed to be linked to OU that contains `user objects`
+#### If GPO is supposed to be linked to OU that contains `User objects`
 
 Navigate to `User configuration > Preferences > Control Panel Settings > Scheduled Task`
 
@@ -94,7 +95,7 @@ Check the box of `Apply once and do not reapply`, then `Apply`, `OK`
 
 ![image](https://user-images.githubusercontent.com/96930989/211192235-76dcc769-2896-49a8-a583-a9f7462aa946.png)
 
-Save the GPO object and link it to the OU 
+Save the GPO object and link it to the OU you want to connect
 
-Log out and log in the machines to apply that new GPO if required.
+Then you can Log out and log in the machines to apply that new GPO if required.
 
