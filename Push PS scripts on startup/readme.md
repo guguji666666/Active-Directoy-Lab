@@ -97,5 +97,5 @@ Check the box of `Apply once and do not reapply`, then `Apply`, `OK`
 
 Save the GPO object and link it to the OU you want to connect
 
-Then you can Log out and log in the machines to apply that new GPO if required.
+Then you can log out and log in the machines to apply that new GPO if required.
 
