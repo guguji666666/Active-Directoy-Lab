@@ -1,6 +1,7 @@
 # Push powershell scripts to AD machines on startup only `once`
 
-## Create shared folder to store files
+## Create shared folder to store powershell scripts
+
 ### 1. Create a new folder on DC
 ![image](https://user-images.githubusercontent.com/96930989/211191621-cff1dda4-e591-41b5-8725-bfbab672b1d0.png)
 
