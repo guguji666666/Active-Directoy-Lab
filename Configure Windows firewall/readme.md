@@ -14,7 +14,7 @@ Therefore, it's crucial to ensure that the Windows Firewall is enabled and confi
 
 ![image](https://user-images.githubusercontent.com/96930989/230535552-d00d800a-648d-4d07-b9a7-3de99a47c5d6.png)
 
-4.In the right pane, click `Windows Defender Firewall Properties`
+4. In the right pane, click `Windows Defender Firewall Properties`
 
 5. Under Firewall state, select On (recommended).
 
