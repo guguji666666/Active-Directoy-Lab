@@ -1,4 +1,4 @@
-## Configure Windows firewall rule using GPO
+## Configure Windows firewall rule using Domain GPO
 
 "Windows Firewall: Domain: Firewall State" is a Group Policy setting in Microsoft Windows that allows network administrators to configure the Windows Firewall behavior on domain-connected Windows computers.
 
