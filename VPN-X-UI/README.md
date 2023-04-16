@@ -138,7 +138,7 @@ Press `7` to start BBRplus
 
 We also recommend to create scheduled tasks to reboot the server everyday.
 
-### Use your VPN service
+### Create your VPN endpoints
 #### 1. Add in shadowrocket on IOS device
 Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
@@ -152,6 +152,3 @@ Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, sca
 ##### d. Navigate to openclash running on your openwrt, add new subscription
 ![image](https://user-images.githubusercontent.com/96930989/226165109-8109734b-a574-48b6-9a15-fab16fb9d2dd.png)
 ##### e. Once the vmess link is added and updated in openclash, you can switch to this new config file.
-
-
-
