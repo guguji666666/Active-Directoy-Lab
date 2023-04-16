@@ -148,7 +148,7 @@ Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, sca
 ![image](https://user-images.githubusercontent.com/96930989/226164987-7b25227d-c06a-468c-9ba7-e431701a85e9.png)
 ##### b. Add new inbound rule for this default port on your VPS server
 ##### c. Once the Vmess endpoint is created, view it and copy the link
-![image](https://user-images.githubusercontent.com/96930989/226165026-3b68c0e6-c587-44bb-9186-43d08f1815ec.png)
+![image](https://user-images.githubusercontent.com/96930989/232296369-46f50470-cd8f-419f-9726-581428c4a6c8.png)
 ##### d. Navigate to openclash running on your openwrt, add new subscription
 ![image](https://user-images.githubusercontent.com/96930989/226165109-8109734b-a574-48b6-9a15-fab16fb9d2dd.png)
 ##### e. Once the vmess link is added and updated in openclash, you can switch to this new config file.
