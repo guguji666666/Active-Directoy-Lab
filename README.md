@@ -77,9 +77,9 @@ Set-ExecutionPolicy RemoteSigned
   
 Install-Module Az -Force
 
-Install-Module MSOnline
+Install-Module MSOnline -Force
 
-Install-Module AzureAD
+Install-Module AzureAD -Force
 ```
 
 #### Install Edge browser (the command is deprecated) > Navigate to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) for manual download and installation
