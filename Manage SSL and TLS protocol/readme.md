@@ -200,7 +200,5 @@ $regSettings += Get-RegValue $regKey 'DisabledByDefault'
 $regSettings
 ```
 
-Sample output
-
-![image](https://user-images.githubusercontent.com/96930989/229266170-80b7cef9-faf8-4be7-84da-da3c52395803.png)
-
+Sample output <br>
+![image](https://user-images.githubusercontent.com/96930989/236149449-2a91b47b-5504-485d-86a8-88ede4843670.png)
