@@ -143,10 +143,13 @@ We also recommend to create scheduled tasks to reboot the server everyday.
 Navigate to the url `<FQDN of the Azure VM>:8443`, click the `QR code` here, scan it using `shadowrocket`  
 ![image](https://user-images.githubusercontent.com/96930989/212442184-bbd4f329-f7d0-42c6-a286-f36f33ccca8d.png)
 
-#### 2. Add vmess endpoint in your openclash running on your openwrt
+#### 2. Add Vmess endpoint in your openclash running on your openwrt
 ##### a. Create a vmess endpoint in your XUI portal (leave the port here default)
 ![image](https://user-images.githubusercontent.com/96930989/226164987-7b25227d-c06a-468c-9ba7-e431701a85e9.png)
 ##### b. Add new inbound rule for this default port on your VPS server
+![image](https://user-images.githubusercontent.com/96930989/236832047-379f3f83-4bcc-4dbe-9cd2-3d3ba71df9f4.png) <br>
+![image](https://user-images.githubusercontent.com/96930989/236832365-b37dc3a7-41ac-40f9-916b-adbdf4938e2e.png)
+
 ##### c. Once the Vmess endpoint is created, view it and copy the link
 ![image](https://user-images.githubusercontent.com/96930989/232296369-46f50470-cd8f-419f-9726-581428c4a6c8.png)
 ##### d. Navigate to openclash running on your openwrt, add new subscription
