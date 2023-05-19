@@ -1,4 +1,4 @@
-# Steps to update GPO template
+# Update GPO template
 
 ### 1. Download the latest version of administrative template (central store)
 [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://learn.microsoft.com/en-US/troubleshoot/windows-client/group-policy/create-and-manage-central-store)
