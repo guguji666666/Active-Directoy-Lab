@@ -1,4 +1,4 @@
-## HOW TO INSTALL WINDOWS 11 ON UNSUPPORTED HARDWARE
+## How to install Win11 on `unsupported` hardware (ESXI8 in this article)
 
 1. Press `Shift + F10` keyboard shortcut to open Command Prompt.
 
