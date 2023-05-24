@@ -121,10 +121,10 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-
 Run command and press `2` for installation (it may take a while)
 ![image](https://user-images.githubusercontent.com/96930989/220104822-261d9440-98c8-4815-96d9-6f93cb4d628b.png)
 
-Select `No` when this window pops up
+Select `Yes` when this window pops up <br>
 ![image](https://user-images.githubusercontent.com/96930989/220105303-51826c65-55b9-4125-92a0-fa11cf78fab3.png)
 
-The VPS server needs to be restarted, press `Y`
+The VPS server needs to be restarted, press `Y` <br>
 ![image](https://user-images.githubusercontent.com/96930989/220105537-d6a49a85-423f-4079-82ad-511031829ea6.png)
 
 Once the VPS server has restarted, run the command
@@ -132,8 +132,7 @@ Once the VPS server has restarted, run the command
 wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
 
-Press `7` to start BBRplus
-
+Press `7` to start BBRplus <br>
 ![image](https://user-images.githubusercontent.com/96930989/220106727-9237e8ed-48d2-4789-8a7f-c9d87f4a1b82.png)
 
 We also recommend to create scheduled tasks to reboot the server everyday.
