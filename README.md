@@ -1,8 +1,13 @@
 # Build Active Directoy
 
 ### Powershell Scripts for quick deployment (Push it via GPO when machine is newly joined)
-#### Enable TLS 1.2
 
+#### Enable TLS 1.2 in powershell session
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+```
+
+#### Enable TLS 1.2 on client machine or Server
 ```powershell
 If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
 {
