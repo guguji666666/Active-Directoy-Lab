@@ -27,6 +27,5 @@ Command to enable UAC if needed
 
 Link : [Disable User Account Control Using Group Policy](https://www.prajwaldesai.com/disable-user-account-control-using-group-policy/)
 
-GPO path : `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options`
-
-![image](https://user-images.githubusercontent.com/96930989/210132027-7bfbf233-7ce4-4d0a-a551-c0edbcd8b7cf.png)
+GPO path : `Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options` <br>
+![image](https://github.com/guguji666666/Active-Directoy-Lab/assets/96930989/590b97be-2da4-4356-bcc5-ec5255edbf47)
