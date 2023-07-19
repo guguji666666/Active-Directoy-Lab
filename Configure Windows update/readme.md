@@ -2,7 +2,7 @@
 
 ## GPO path
 ```
-Computer Configuration > Administrative Templates > Windows Components > click Windows Update
+Computer Configuration > Administrative Templates > Windows Components > Windows Update
 ```
 
 ### Click Enabled and select one of the following options:
