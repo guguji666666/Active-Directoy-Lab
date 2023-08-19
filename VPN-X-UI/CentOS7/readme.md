@@ -19,7 +19,8 @@ DNS A record > points "test.abc.com" to the IP of Azure VM.
 * [Manage your custom domain in Tecent](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Flighthouse%2Fdomain%2Findex%3Frid%3D1)
 
 
-SWAP if required
+### Deployment
+#### 1. SWAP if required
 
 ```sh
 yum install wget curl sudo vim git -y
@@ -40,7 +41,7 @@ For example, the original RAM of the linux server is 1G = 1024 MB, then we input
 ![image](https://user-images.githubusercontent.com/96930989/232177332-0865f65a-2e28-4001-8633-567f4f3ef566.png)
 
 
-Get SSL cert from public CA
+#### 2. Get SSL cert from public CA
 ```sh
 sudo -i
 ```
@@ -73,7 +74,7 @@ Install SSL cert
 ![image](https://user-images.githubusercontent.com/96930989/212327231-b8766022-617a-482f-b3bc-95f81c659e88.png)
 
 
-Install X-UI panel
+#### 3. Install X-UI panel
 ```sh
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ```
