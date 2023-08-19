@@ -18,42 +18,13 @@ DNS A record > points "test.abc.com" to the IP of Azure VM.
 
 * [Manage your custom domain in Tecent](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Flighthouse%2Fdomain%2Findex%3Frid%3D1)
 
-Switch to root account
-```sh
-sudo su root
-```
-Switch directory
-```
-cd ~
-```
-Check current system time
-```sh
-date
-```
-Modify system time
-```sh
-dpkg-reconfigure tzdata
-```
-Install ufw
-```sh
-apt install ufw
-```
-
-Open the ports if ufw is enabled, or you can disable ufw by running the command `ufw disable`
-```sh
-ufw allow 80
-```
-```sh
-ufw allow 443
-```
-```sh
-ufw allow 8443
-```
-![image](https://user-images.githubusercontent.com/96930989/212443335-8194e2e2-fb4c-4be4-b74f-4759f2c7c98f.png)
 
 Get SSL cert from public CA
 ```sh
-apt update -y 
+sudo -i
+```
+```sh
+yum update -y 
 ```
 ```sh
 yum install -y curl
