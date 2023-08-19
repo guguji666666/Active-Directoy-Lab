@@ -19,6 +19,27 @@ DNS A record > points "test.abc.com" to the IP of Azure VM.
 * [Manage your custom domain in Tecent](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Flighthouse%2Fdomain%2Findex%3Frid%3D1)
 
 
+SWAP if required
+
+```sh
+yum install wget curl sudo vim git -y
+```
+
+```sh
+wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh && chmod +x box.sh && clear && ./box.sh
+```
+
+Input 18
+
+![image](https://user-images.githubusercontent.com/96930989/232177321-3f0ff739-f1b9-46fc-b697-700a73ea3cfb.png)
+
+Input the RAM you want to swap, normally it is 2 * orginial RAM
+
+For example, the original RAM of the linux server is 1G = 1024 MB, then we input 2048 here
+
+![image](https://user-images.githubusercontent.com/96930989/232177332-0865f65a-2e28-4001-8633-567f4f3ef566.png)
+
+
 Get SSL cert from public CA
 ```sh
 sudo -i
