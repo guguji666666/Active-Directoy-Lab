@@ -23,6 +23,10 @@ DNS A record > points "test.abc.com" to the IP of Azure VM.
 #### 1. SWAP if required
 
 ```sh
+yum update -y
+```
+
+```sh
 yum install wget curl sudo vim git -y
 ```
 
