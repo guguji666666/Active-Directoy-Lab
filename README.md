@@ -87,8 +87,9 @@ Install-Module MSOnline -Force
 Install-Module AzureAD -Force
 ```
 
-#### Install Edge browser (the command is deprecated) > Navigate to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) for manual download and installation
+#### Install Edge browser > Navigate to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) for manual download and installation
 
+commands deprecated
 ```powershell
 md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -97,3 +98,49 @@ Invoke-WebRequest 'https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamings
 Start-Process "$Download" -ArgumentList "/quiet"
 ```
 ![image](https://user-images.githubusercontent.com/96930989/227784354-b305d387-09c0-480c-bd10-aebb4ab1a835.png)
+
+
+#### Install firefox
+```powershell
+# Define the URL for the Firefox full installer
+$firefoxURL = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/93.0/win64/en-US/Firefox%20Setup%2093.0.exe"
+
+# Define the path where the installer will be saved
+$installerPath = "C:\Temp\FirefoxInstaller.exe"
+
+# Create the directory if it doesn't exist
+if (-Not (Test-Path "C:\Temp")) {
+    New-Item -ItemType Directory -Path "C:\Temp"
+}
+
+# Download the Firefox full installer
+Invoke-WebRequest -Uri $firefoxURL -OutFile $installerPath
+
+# Install Firefox silently
+Start-Process -FilePath $installerPath -Args "/S" -Wait
+
+# Delete the installer
+Remove-Item -Path $installerPath
+
+# Confirm Installation
+Write-Host "Firefox silent installation is complete."
+```
+
+#### Remove firefox
+```powershell
+# Look up the uninstall string for Firefox from the Windows Registry
+$uninstallPath = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall  -Recurse |
+Get-ItemProperty |
+Where-Object {$_.DisplayName -match 'Mozilla Firefox'} |
+Select-Object -Property DisplayName, UninstallString
+
+# Check if Firefox is installed
+if ($uninstallPath -eq $null) {
+    Write-Host "Firefox is not installed on this machine."
+} else {
+    # Run the uninstaller
+    Write-Host "Uninstalling Firefox..."
+    Start-Process cmd -ArgumentList "/c $($uninstallPath.UninstallString) /S" -Wait
+    Write-Host "Firefox has been uninstalled."
+}
+```
