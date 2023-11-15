@@ -182,26 +182,37 @@ Rename-Computer -NewName "ADFS1" -Restart
 ```
 
 ### Join domain
+```powershell
+add-computer –domainname "<domain name>"  -restart
+```
 
-add-computer –domainname "aceultraman.com"  -restart
+Smaple
+```powershell
+add-computer –domainname "acetest.com" -DomainCredential ace\administrator -restart
+```
 
-add-computer –domainname "aceultraman.com" -DomainCredential ace\administrator -restart
+### Rename domain-joined machines
 
+```powershell
+Rename-Computer -NewName "<new computer name>" -DomainCredential <domain admin in SAM format> -Restart
+```
 
-Rename domain-joined machines
-
+Sample
+```powershell
 Rename-Computer -NewName "ACEADFS1" -DomainCredential ace\administrator -Restart
+```
 
-Rename-Computer -NewName "WXRDGW" -DomainCredential ace\administrator -Restart
+### Leave domain
 
-Rename-Computer (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs
+```powershell
+Remove-Computer -UnjoinDomaincredential <domain admin in SAM format> -PassThru -Verbose -Restart
+```
 
-
-Leave domain :
-
+Sample
+```powershell
 Remove-Computer -UnjoinDomaincredential Power\administrator -PassThru -Verbose -Restart
+```
 
-Remove-Computer -UnjoinDomaincredential ace\administrator -PassThru -Verbose -Restart
 
 
 
