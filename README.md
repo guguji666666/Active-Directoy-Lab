@@ -144,3 +144,64 @@ if ($uninstallPath -eq $null) {
     Write-Host "Firefox has been uninstalled."
 }
 ```
+
+### Other commands
+
+#### Join domain
+
+On client machine ( going to be domain joined )
+
+```powershell
+Set-DNSClientServerAddress "<adapter name>" –ServerAddresses ("<IP of DC>")
+```
+
+Sample
+```powershell
+Set-DNSClientServerAddress "NIC1" –ServerAddresses ("192.168.2.50")
+```
+
+```powershell
+Set-DNSClientServerAddress "Ethernet0" –ServerAddresses ("192.168.242.139")
+```
+
+Verify the DNS server you set
+```powershell
+Get-dnsclientserveraddress
+```
+
+
+#### Rename computer name
+
+
+```powershell
+Rename-Computer -NewName "<new computer name>" -Restart
+```
+Sample
+```powershell
+Rename-Computer -NewName "ADFS1" -Restart
+```
+
+### Join domain
+
+add-computer –domainname "aceultraman.com"  -restart
+
+add-computer –domainname "aceultraman.com" -DomainCredential ace\administrator -restart
+
+
+Rename domain-joined machines
+
+Rename-Computer -NewName "ACEADFS1" -DomainCredential ace\administrator -Restart
+
+Rename-Computer -NewName "WXRDGW" -DomainCredential ace\administrator -Restart
+
+Rename-Computer (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs
+
+
+Leave domain :
+
+Remove-Computer -UnjoinDomaincredential Power\administrator -PassThru -Verbose -Restart
+
+Remove-Computer -UnjoinDomaincredential ace\administrator -PassThru -Verbose -Restart
+
+
+
