@@ -36,4 +36,39 @@ $parsedStatus | Format-Table -AutoSize
 
 ### 2. Update apps listed in `scoope status`
 ```powershell
+# Capture the output of `scoop status`
+$scoopStatus = scoop status
+
+# Initialize an empty array to store parsed objects
+$parsedStatus = @()
+$appList = @()
+
+# Parse each line of the output
+foreach ($line in $scoopStatus) {
+    # Use regex to match and extract app data
+    if ($line -match '@{Name=(.*?);.*Version=(.*?);.*Latest Version=(.*?);.*}') {
+        $appName = $matches[1].Trim()
+        $installedVersion = $matches[2].Trim()
+        $latestVersion = $matches[3].Trim()
+        
+        # Create a custom object with the extracted data
+        $app = [pscustomobject]@{
+            AppName          = $appName
+            InstalledVersion = $installedVersion
+            LatestVersion    = $latestVersion
+        }
+
+        $parsedStatus += $app
+        $appList += $appName
+    }
+}
+
+# Display the parsed output in a table format
+$parsedStatus | Format-Table -AutoSize
+
+# Run `scoop update <appname>` for each detected application
+foreach ($app in $appList) {
+    Write-Host "Updating $app..."
+    scoop update $app
+}
 ```
