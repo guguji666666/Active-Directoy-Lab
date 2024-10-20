@@ -72,3 +72,5 @@ foreach ($app in $appList) {
     scoop update $app
 }
 ```
+![image](https://github.com/user-attachments/assets/562dc5a8-baac-43e3-ad6c-cf6c654edbe0)
+
