@@ -2,7 +2,7 @@
 
 ## Powershell scripts used with scoop
 
-### 1. List apps output from `scoope status`
+### 1. List apps output from `scoop status`
 ```powershell
 # Capture the output of `scoop status`
 $scoopStatus = scoop status
@@ -34,7 +34,7 @@ $parsedStatus | Format-Table -AutoSize
 ![image](https://github.com/user-attachments/assets/272d50f9-29e3-4b98-b7d9-f99501468b8d)
 
 
-### 2. Update apps listed in `scoope status`
+### 2. Update apps listed in `scoop status`
 ```powershell
 # Capture the output of `scoop status`
 $scoopStatus = scoop status
