@@ -12,6 +12,9 @@ Click `GET POLICY FILES` and download `MicrosoftEdgePolicyTemplates`
 
 ![image](https://user-images.githubusercontent.com/96930989/211276445-0b7f5f29-de30-44e3-85ef-1507f50b577a.png)
 
+![image](https://github.com/user-attachments/assets/7a29754f-08b6-4ee3-8511-df455225517a)
+
+
 #### 2. Install the `MicrosoftEdgePolicyTemplates`
 ![image](https://user-images.githubusercontent.com/96930989/211276581-c06811e2-c99b-436a-b3e6-c54a8744e9d3.png)
 
