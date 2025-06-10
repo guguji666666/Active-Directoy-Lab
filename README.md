@@ -109,6 +109,26 @@ Sample <br>
 ## 💻 Enable RDP & Configure Access Control
 
 ```powershell
+# 🧰 Check and offer to install RSAT-AD-PowerShell module
+$rsatFeature = Get-WindowsFeature -Name RSAT-AD-PowerShell
+
+if (-not $rsatFeature.Installed) {
+    Write-Warning "❌ The RSAT-AD-PowerShell module is not installed. It is required to list domain groups."
+    $installRSAT = Read-Host "Would you like to install it now? (y/n)"
+    if ($installRSAT -eq 'y') {
+        try {
+            Install-WindowsFeature RSAT-AD-PowerShell -IncludeAllSubFeature -IncludeManagementTools
+            Write-Host "✅ RSAT-AD-PowerShell successfully installed." -ForegroundColor Green
+        } catch {
+            Write-Error "❌ Failed to install RSAT-AD-PowerShell: $_"
+            exit
+        }
+    } else {
+        Write-Host "➡ Cannot proceed with domain group listing. Exiting..."
+        exit
+    }
+}
+
 # Display current domain
 $domain = ([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).Name
 Write-Host "`n🖥️ Current domain: $domain"
