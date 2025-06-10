@@ -109,12 +109,12 @@ Sample <br>
 ## 💻 Enable RDP & Configure Access Control
 
 ```powershell
-# Display domain name
+# Display current domain
 $domain = ([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).Name
-Write-Host "\n🖥️ Current domain: $domain"
+Write-Host "`n🖥️ Current domain: $domain"
 
 # Enable Remote Desktop
-$enableRDP = Read-Host "\nEnable Remote Desktop (RDP)? (y/n)"
+$enableRDP = Read-Host "`nEnable Remote Desktop (RDP)? (y/n)"
 if ($enableRDP -eq 'y') {
     Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
     Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
@@ -124,26 +124,15 @@ if ($enableRDP -eq 'y') {
 }
 
 # Add authorized RDP users or groups
-$addRDPUser = Read-Host "\nAdd authorized RDP user or group? (y/n)"
+$addRDPUser = Read-Host "`nDo you want to add an authorized RDP user or group? (y/n)"
 if ($addRDPUser -eq 'y') {
-    $choice = Read-Host "Enter type (group or user)"
+    Write-Host "`nChoose type:"
+    Write-Host "1. Add a domain *user*"
+    Write-Host "2. Add a domain *group*"
+    $choice = Read-Host "Enter your choice (1 or 2)"
 
-    if ($choice -eq 'group') {
-        $groupInput = Read-Host "Enter group name (domain\\group or just group name)"
-        $groupSAM = if ($groupInput -like "*\\*") { $groupInput } else { "$domain\\$groupInput" }
-
-        try {
-            $groupExists = ([ADSI]"WinNT://$groupSAM,group").Name
-            if ($groupExists) {
-                Add-LocalGroupMember -Group "Remote Desktop Users" -Member $groupSAM -ErrorAction Stop
-                Write-Host "✅ Group $groupSAM added to Remote Desktop Users."
-            }
-        } catch {
-            Write-Warning "❌ Group not found or format invalid: $groupSAM"
-        }
-
-    } elseif ($choice -eq 'user') {
-        $userInput = Read-Host "Enter username (User or Domain\\User)"
+    if ($choice -eq '1') {
+        $userInput = Read-Host "Enter the username (e.g. 'User' or 'Domain\\User')"
         $userSAM = if ($userInput -like "*\\*") { $userInput } else { "$domain\\$userInput" }
 
         try {
@@ -156,8 +145,32 @@ if ($addRDPUser -eq 'y') {
             Write-Warning "❌ User not found or format invalid: $userSAM"
         }
 
+    } elseif ($choice -eq '2') {
+        Write-Host "`nFetching domain groups..."
+        try {
+            $groups = Get-ADGroup -Filter * | Sort-Object Name
+            if ($groups.Count -eq 0) {
+                Write-Warning "❌ No domain groups found."
+                exit
+            }
+
+            # Display groups with index
+            for ($i = 0; $i -lt $groups.Count; $i++) {
+                Write-Host "$($i+1). $($groups[$i].Name)"
+            }
+
+            $groupIndex = Read-Host "`nEnter the number of the group you want to add"
+            $selectedGroup = $groups[$groupIndex - 1].Name
+            $groupSAM = "$domain\\$selectedGroup"
+
+            Add-LocalGroupMember -Group "Remote Desktop Users" -Member $groupSAM -ErrorAction Stop
+            Write-Host "✅ Group $groupSAM added to Remote Desktop Users."
+        } catch {
+            Write-Warning "❌ Error retrieving or adding group: $_"
+        }
+
     } else {
-        Write-Warning "⚠ Invalid input. Must be 'group' or 'user'."
+        Write-Warning "⚠ Invalid input. Please enter '1' for user or '2' for group."
     }
 } else {
     Write-Host "➡ No changes made to RDP user access."
