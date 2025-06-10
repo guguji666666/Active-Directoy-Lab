@@ -100,6 +100,9 @@ if ($setDNS -eq 'y') {
     Write-Host "DNS settings unchanged."
 }
 ```
+Sample <br>
+![image](https://github.com/user-attachments/assets/d544cc24-bedf-4455-96bc-8686c744c9c1)
+
 
 ---
 
