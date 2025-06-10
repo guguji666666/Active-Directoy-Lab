@@ -1,218 +1,203 @@
-# Build Active Directoy
+# 🏗️ Build Active Directory Deployment Toolkit
 
-### Powershell Scripts for quick deployment (Push it via GPO when machine is newly joined)
+> 💡 Recommended to **push via GPO** or other automation when a machine is newly joined to the domain.
 
-#### Enable TLS 1.2 in powershell session
+---
+
+## 🔐 Enable TLS 1.2
+
+### Enable TLS 1.2 in PowerShell session (for current script use)
+
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 
-#### Enable TLS 1.2 on client machine or Server
+### Enable TLS 1.2 system-wide (client/server)
+
 ```powershell
-If (-Not (Test-Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'))
-{
-    New-Item 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319' -Force | Out-Null
-}
-New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319' -Name 'SystemDefaultTlsVersions' -Value '1' -PropertyType 'DWord' -Force | Out-Null
-New-ItemProperty -Path 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -PropertyType 'DWord' -Force | Out-Null
+# .NET Framework settings (32-bit)
+$path1 = 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319'
+if (-not (Test-Path $path1)) { New-Item $path1 -Force | Out-Null }
+New-ItemProperty -Path $path1 -Name 'SystemDefaultTlsVersions' -Value 1 -PropertyType DWord -Force
+New-ItemProperty -Path $path1 -Name 'SchUseStrongCrypto' -Value 1 -PropertyType DWord -Force
 
-If (-Not (Test-Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319'))
-{
-    New-Item 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Force | Out-Null
-}
-New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Name 'SystemDefaultTlsVersions' -Value '1' -PropertyType 'DWord' -Force | Out-Null
-New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -PropertyType 'DWord' -Force | Out-Null
+# .NET Framework settings (64-bit)
+$path2 = 'HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319'
+if (-not (Test-Path $path2)) { New-Item $path2 -Force | Out-Null }
+New-ItemProperty -Path $path2 -Name 'SystemDefaultTlsVersions' -Value 1 -PropertyType DWord -Force
+New-ItemProperty -Path $path2 -Name 'SchUseStrongCrypto' -Value 1 -PropertyType DWord -Force
 
-If (-Not (Test-Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server'))
-{
-    New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Force | Out-Null
-}
-New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Name 'Enabled' -Value '1' -PropertyType 'DWord' -Force | Out-Null
-New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server' -Name 'DisabledByDefault' -Value '0' -PropertyType 'DWord' -Force | Out-Null
+# TLS 1.2 Protocol for Server
+$serverPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server'
+if (-not (Test-Path $serverPath)) { New-Item $serverPath -Force | Out-Null }
+New-ItemProperty -Path $serverPath -Name 'Enabled' -Value 1 -PropertyType DWord -Force
+New-ItemProperty -Path $serverPath -Name 'DisabledByDefault' -Value 0 -PropertyType DWord -Force
 
-If (-Not (Test-Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client'))
-{
-    New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Force | Out-Null
-}
-New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Name 'Enabled' -Value '1' -PropertyType 'DWord' -Force | Out-Null
-New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client' -Name 'DisabledByDefault' -Value '0' -PropertyType 'DWord' -Force | Out-Null
+# TLS 1.2 Protocol for Client
+$clientPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client'
+if (-not (Test-Path $clientPath)) { New-Item $clientPath -Force | Out-Null }
+New-ItemProperty -Path $clientPath -Name 'Enabled' -Value 1 -PropertyType DWord -Force
+New-ItemProperty -Path $clientPath -Name 'DisabledByDefault' -Value 0 -PropertyType DWord -Force
 
-Write-Host 'TLS 1.2 has been enabled. You must restart the Windows Server for the changes to take affect.' -ForegroundColor Cyan
+Write-Host '✅ TLS 1.2 has been enabled. Please restart the system to apply changes.' -ForegroundColor Cyan
 ```
 
-#### Install 7zip
+---
+
+## 📦 Common Software Installers
+
+### Install 7-Zip (x64)
 
 ```powershell
-$dlurl = 'https://7-zip.org/' + (Invoke-WebRequest -UseBasicParsing -Uri 'https://7-zip.org/' | Select-Object -ExpandProperty Links | Where-Object {($_.outerHTML -match 'Download')-and ($_.href -like "a/*") -and ($_.href -like "*-x64.exe")} | Select-Object -First 1 | Select-Object -ExpandProperty href)
-# modified to work without IE
-# above code from: https://perplexity.nl/windows-powershell/installing-or-updating-7-zip-using-powershell/
+$dlurl = 'https://7-zip.org/' + (Invoke-WebRequest -UseBasicParsing -Uri 'https://7-zip.org/' |
+    Select-Object -ExpandProperty Links |
+    Where-Object { $_.outerHTML -match 'Download' -and $_.href -like "a/*" -and $_.href -like "*-x64.exe" } |
+    Select-Object -First 1 |
+    Select-Object -ExpandProperty href)
+
 $installerPath = Join-Path $env:TEMP (Split-Path $dlurl -Leaf)
 Invoke-WebRequest $dlurl -OutFile $installerPath
 Start-Process -FilePath $installerPath -Args "/S" -Verb RunAs -Wait
 Remove-Item $installerPath
 ```
 
-#### Install notepad++ with latest version
+### Install Notepad++ (latest version)
 
 ```powershell
 $LocalTempDir = $env:TEMP
 $href = ((Invoke-WebRequest -Uri 'https://notepad-plus-plus.org/downloads/').Links | Where-Object { $_.innerText -match 'current version' }).href
 $downloadUrl = ((Invoke-WebRequest "https://notepad-plus-plus.org/$href").Links | Where-Object { $_.innerHTML -match 'installer' -and $_.href -match 'x64.exe' }).href
-Invoke-RestMethod $downloadUrl -OutFile "$LocalTempDir/np++.exe"
-start-process -FilePath "$LocalTempDir\np++.exe" -ArgumentList '/S' -Verb runas -Wait
+Invoke-RestMethod $downloadUrl -OutFile "$LocalTempDir\np++.exe"
+Start-Process "$LocalTempDir\np++.exe" -ArgumentList '/S' -Verb runas -Wait
 ```
 
-
-#### Install Chrome
+### Install Google Chrome
 
 ```powershell
-$LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller"); & "$LocalTempDir\$ChromeInstaller" /silent /install; $Process2Monitor = "ChromeInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
+$LocalTempDir = $env:TEMP
+$ChromeInstaller = "ChromeInstaller.exe"
+(New-Object System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller")
+& "$LocalTempDir\$ChromeInstaller" /silent /install
+Do {
+    $ProcessesFound = Get-Process | Where-Object { $_.Name -eq "ChromeInstaller" }
+    if ($ProcessesFound) { Start-Sleep -Seconds 2 }
+    else { Remove-Item "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue }
+} Until (!$ProcessesFound)
 ```
 
-#### Install common AAD powershell modules
+### Install Microsoft Edge
+
+➡️ Visit: [Download Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ)
+
+*⚠️ MSI Installer method deprecated*
+
+### Install Firefox (v93.0 Example)
 
 ```powershell
-Install-PackageProvider NuGet -Force
-
-Set-PSRepository PSGallery -InstallationPolicy Trusted
-
-Set-ExecutionPolicy RemoteSigned
-
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  
-Install-Module Az -Force
-
-Install-Module MSOnline -Force
-
-Install-Module AzureAD -Force
-```
-
-#### Install Edge browser > Navigate to [Install Edge](https://www.microsoft.com/en-us/edge/download?form=MA13FJ) for manual download and installation
-
-commands deprecated
-```powershell
-md -Path $env:temp\edgeinstall -erroraction SilentlyContinue | Out-Null
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$Download = join-path $env:temp\edgeinstall MicrosoftEdgeEnterpriseX64.msi
-Invoke-WebRequest 'https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/a2662b5b-97d0-4312-8946-598355851b3b/MicrosoftEdgeEnterpriseX64.msi'  -OutFile $Download
-Start-Process "$Download" -ArgumentList "/quiet"
-```
-![image](https://user-images.githubusercontent.com/96930989/227784354-b305d387-09c0-480c-bd10-aebb4ab1a835.png)
-
-
-#### Install firefox
-```powershell
-# Define the URL for the Firefox full installer
 $firefoxURL = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/93.0/win64/en-US/Firefox%20Setup%2093.0.exe"
-
-# Define the path where the installer will be saved
 $installerPath = "C:\Temp\FirefoxInstaller.exe"
 
-# Create the directory if it doesn't exist
 if (-Not (Test-Path "C:\Temp")) {
     New-Item -ItemType Directory -Path "C:\Temp"
 }
 
-# Download the Firefox full installer
 Invoke-WebRequest -Uri $firefoxURL -OutFile $installerPath
+Start-Process $installerPath -Args "/S" -Wait
+Remove-Item $installerPath
 
-# Install Firefox silently
-Start-Process -FilePath $installerPath -Args "/S" -Wait
-
-# Delete the installer
-Remove-Item -Path $installerPath
-
-# Confirm Installation
-Write-Host "Firefox silent installation is complete."
+Write-Host "✅ Firefox silent installation complete."
 ```
 
-#### Remove firefox
-```powershell
-# Look up the uninstall string for Firefox from the Windows Registry
-$uninstallPath = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall  -Recurse |
-Get-ItemProperty |
-Where-Object {$_.DisplayName -match 'Mozilla Firefox'} |
-Select-Object -Property DisplayName, UninstallString
+### Uninstall Firefox
 
-# Check if Firefox is installed
-if ($uninstallPath -eq $null) {
-    Write-Host "Firefox is not installed on this machine."
+```powershell
+$uninstallPath = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall -Recurse |
+    Get-ItemProperty |
+    Where-Object { $_.DisplayName -match 'Mozilla Firefox' } |
+    Select-Object -First 1
+
+if ($null -eq $uninstallPath) {
+    Write-Host "Firefox is not installed."
 } else {
-    # Run the uninstaller
-    Write-Host "Uninstalling Firefox..."
     Start-Process cmd -ArgumentList "/c $($uninstallPath.UninstallString) /S" -Wait
-    Write-Host "Firefox has been uninstalled."
+    Write-Host "✅ Firefox uninstalled."
 }
 ```
 
-### Other commands
+---
 
-#### Join domain
-
-On client machine ( going to be domain joined )
+## ⚙️ Install Common PowerShell Modules
 
 ```powershell
-Set-DNSClientServerAddress "<adapter name>" –ServerAddresses ("<IP of DC>")
+Install-PackageProvider NuGet -Force
+Set-PSRepository PSGallery -InstallationPolicy Trusted
+Set-ExecutionPolicy RemoteSigned
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+Install-Module Az -Force
+Install-Module MSOnline -Force
+Install-Module AzureAD -Force
 ```
 
-Sample
+---
+
+## 🖥️ Domain Operations
+
+### Set DNS Client Address
+
+```powershell
+Set-DNSClientServerAddress "<adapter name>" –ServerAddresses ("<DC IP>")
+```
+
+**Examples:**
+
 ```powershell
 Set-DNSClientServerAddress "NIC1" –ServerAddresses ("192.168.2.50")
-```
-
-```powershell
 Set-DNSClientServerAddress "Ethernet0" –ServerAddresses ("192.168.242.139")
 ```
 
-Verify the DNS server you set
+### Verify DNS
+
 ```powershell
-Get-dnsclientserveraddress
+Get-DnsClientServerAddress
 ```
 
-
-#### Rename computer name
-
+### Rename Computer
 
 ```powershell
-Rename-Computer -NewName "<new computer name>" -Restart
-```
-Sample
-```powershell
+Rename-Computer -NewName "<new name>" -Restart
+# Example:
 Rename-Computer -NewName "ADFS1" -Restart
 ```
 
-### Join domain
+### Join Domain
+
 ```powershell
-add-computer –domainname "<domain name>"  -restart
+Add-Computer –DomainName "<domain name>" -Restart
+# Example:
+Add-Computer –DomainName "acetest.com" -DomainCredential ace\administrator -Restart
 ```
 
-Smaple
-```powershell
-add-computer –domainname "acetest.com" -DomainCredential ace\administrator -restart
-```
-
-### Rename domain-joined machines
+### Rename Domain-Joined Machine
 
 ```powershell
-Rename-Computer -NewName "<new computer name>" -DomainCredential <domain admin in SAM format> -Restart
-```
-
-Sample
-```powershell
+Rename-Computer -NewName "<new name>" -DomainCredential <SAM format> -Restart
+# Example:
 Rename-Computer -NewName "ACEADFS1" -DomainCredential ace\administrator -Restart
 ```
 
-### Leave domain
+### Leave Domain
 
 ```powershell
-Remove-Computer -UnjoinDomaincredential <domain admin in SAM format> -PassThru -Verbose -Restart
-```
-
-Sample
-```powershell
+Remove-Computer -UnjoinDomaincredential <domain admin> -PassThru -Verbose -Restart
+# Example:
 Remove-Computer -UnjoinDomaincredential Power\administrator -PassThru -Verbose -Restart
 ```
 
+---
 
+### 📸 Visual Reference
 
+![TLS Settings](https://user-images.githubusercontent.com/96930989/227784354-b305d387-09c0-480c-bd10-aebb4ab1a835.png)
 
+---
