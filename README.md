@@ -267,7 +267,7 @@ Install-Module AzureAD -Force
 ### Set DNS Client Address
 
 ```powershell
-Set-DNSClientServerAddress "<adapter name>" –ServerAddresses ("<DC IP>")
+Set-DnsClientServerAddress -InterfaceAlias "<adapter name>" -ServerAddresses ("<domain controller IP>")
 ```
 
 **Examples:**
