@@ -61,31 +61,41 @@ $interfaceAlias = $adapter.Name
 $ipConfig = Get-NetIPInterface -InterfaceAlias $interfaceAlias -AddressFamily IPv4
 
 Write-Host "Detected adapter: $interfaceAlias"
-Write-Host "Current IP assignment: " ($ipConfig.Dhcp -eq "Enabled" ? "Dynamic (DHCP)" : "Static")
+
+# PowerShell does not support ternary operators, use if/else
+$ipType = if ($ipConfig.Dhcp -eq "Enabled") { "Dynamic (DHCP)" } else { "Static" }
+Write-Host "Current IP assignment: $ipType"
 
 # Set Static IP
-$setStaticIP = Read-Host "\nDo you want to manually set a static IP? (y/n)"
+$setStaticIP = Read-Host "`nDo you want to manually set a static IP? (y/n)"
 if ($setStaticIP -eq 'y') {
     $ipAddress = Read-Host "Enter IP address (e.g. 192.168.1.100)"
     $subnetMask = Read-Host "Enter subnet mask (e.g. 255.255.255.0)"
     $gateway = Read-Host "Enter default gateway (e.g. 192.168.1.1)"
 
+    # Remove existing IPv4 addresses
     Get-NetIPAddress -InterfaceAlias $interfaceAlias -AddressFamily IPv4 | Remove-NetIPAddress -Confirm:$false
-    New-NetIPAddress -InterfaceAlias $interfaceAlias -IPAddress $ipAddress -PrefixLength (32 - [math]::Log(([ipaddress]$subnetMask).Address -band 0xffffffff + 1, 2)) -DefaultGateway $gateway
+
+    # Calculate prefix length from subnet mask
+    $prefixLength = 32 - [math]::Log(([ipaddress]$subnetMask).Address -band 0xffffffff + 1, 2)
+
+    # Set static IP
+    New-NetIPAddress -InterfaceAlias $interfaceAlias -IPAddress $ipAddress -PrefixLength $prefixLength -DefaultGateway $gateway
     Set-NetIPInterface -InterfaceAlias $interfaceAlias -Dhcp Disabled
-    Write-Host "\n✅ Static IP configured."
+
+    Write-Host "`n✅ Static IP configured."
 } else {
     Write-Host "IP configuration unchanged."
 }
 
 # Set DNS
-$setDNS = Read-Host "\nDo you want to manually set DNS servers? (y/n)"
+$setDNS = Read-Host "`nDo you want to manually set DNS servers? (y/n)"
 if ($setDNS -eq 'y') {
     $primaryDNS = Read-Host "Enter primary DNS (e.g. 8.8.8.8)"
     $secondaryDNS = Read-Host "Enter secondary DNS (e.g. 8.8.4.4)"
 
     Set-DnsClientServerAddress -InterfaceAlias $interfaceAlias -ServerAddresses @($primaryDNS, $secondaryDNS)
-    Write-Host "\n✅ DNS servers configured."
+    Write-Host "`n✅ DNS servers configured."
 } else {
     Write-Host "DNS settings unchanged."
 }
