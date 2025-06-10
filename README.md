@@ -333,6 +333,7 @@ if ($rename -eq 'y') {
 Write-Host "`nThe machine will now restart to apply domain changes..." -ForegroundColor Cyan
 Restart-Computer -Force
 ```
+![image](https://github.com/user-attachments/assets/f72506a4-ff99-44c2-b0ba-225d1a86ff7c)
 
 ### Rename Domain-Joined Machine
 
