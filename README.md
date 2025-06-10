@@ -196,7 +196,10 @@ if ($addRDPUser -eq 'y') {
     Write-Host "➡ No changes made to RDP user access."
 }
 ```
+Sample <br>
+![image](https://github.com/user-attachments/assets/7d6a4b99-46d9-46cd-baab-db6a9e626a4d)
 
+![image](https://github.com/user-attachments/assets/72b27516-f7ee-4b8e-8d60-d7cc59052f8b)
 
 ## 📦 Common Software Installers
 
