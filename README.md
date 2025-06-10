@@ -44,6 +44,114 @@ Write-Host '✅ TLS 1.2 has been enabled. Please restart the system to apply cha
 
 ---
 
+## 🚀 Configure Static IP and DNS
+
+```powershell
+# Ensure script is run as Administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole("Administrator")) {
+    Write-Warning "⚠ Please run this script as Administrator!"
+    exit
+}
+
+# Get current active network adapter
+$adapter = Get-NetAdapter | Where-Object { $_.Status -eq 'Up' } | Select-Object -First 1
+$interfaceAlias = $adapter.Name
+
+# Get current IP config
+$ipConfig = Get-NetIPInterface -InterfaceAlias $interfaceAlias -AddressFamily IPv4
+
+Write-Host "Detected adapter: $interfaceAlias"
+Write-Host "Current IP assignment: " ($ipConfig.Dhcp -eq "Enabled" ? "Dynamic (DHCP)" : "Static")
+
+# Set Static IP
+$setStaticIP = Read-Host "\nDo you want to manually set a static IP? (y/n)"
+if ($setStaticIP -eq 'y') {
+    $ipAddress = Read-Host "Enter IP address (e.g. 192.168.1.100)"
+    $subnetMask = Read-Host "Enter subnet mask (e.g. 255.255.255.0)"
+    $gateway = Read-Host "Enter default gateway (e.g. 192.168.1.1)"
+
+    Get-NetIPAddress -InterfaceAlias $interfaceAlias -AddressFamily IPv4 | Remove-NetIPAddress -Confirm:$false
+    New-NetIPAddress -InterfaceAlias $interfaceAlias -IPAddress $ipAddress -PrefixLength (32 - [math]::Log(([ipaddress]$subnetMask).Address -band 0xffffffff + 1, 2)) -DefaultGateway $gateway
+    Set-NetIPInterface -InterfaceAlias $interfaceAlias -Dhcp Disabled
+    Write-Host "\n✅ Static IP configured."
+} else {
+    Write-Host "IP configuration unchanged."
+}
+
+# Set DNS
+$setDNS = Read-Host "\nDo you want to manually set DNS servers? (y/n)"
+if ($setDNS -eq 'y') {
+    $primaryDNS = Read-Host "Enter primary DNS (e.g. 8.8.8.8)"
+    $secondaryDNS = Read-Host "Enter secondary DNS (e.g. 8.8.4.4)"
+
+    Set-DnsClientServerAddress -InterfaceAlias $interfaceAlias -ServerAddresses @($primaryDNS, $secondaryDNS)
+    Write-Host "\n✅ DNS servers configured."
+} else {
+    Write-Host "DNS settings unchanged."
+}
+```
+
+---
+
+## 💻 Enable RDP & Configure Access Control
+
+```powershell
+# Display domain name
+$domain = ([System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()).Name
+Write-Host "\n🖥️ Current domain: $domain"
+
+# Enable Remote Desktop
+$enableRDP = Read-Host "\nEnable Remote Desktop (RDP)? (y/n)"
+if ($enableRDP -eq 'y') {
+    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
+    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    Write-Host "✅ Remote Desktop enabled and firewall rules adjusted."
+} else {
+    Write-Host "➡ No changes made to Remote Desktop settings."
+}
+
+# Add authorized RDP users or groups
+$addRDPUser = Read-Host "\nAdd authorized RDP user or group? (y/n)"
+if ($addRDPUser -eq 'y') {
+    $choice = Read-Host "Enter type (group or user)"
+
+    if ($choice -eq 'group') {
+        $groupInput = Read-Host "Enter group name (domain\\group or just group name)"
+        $groupSAM = if ($groupInput -like "*\\*") { $groupInput } else { "$domain\\$groupInput" }
+
+        try {
+            $groupExists = ([ADSI]"WinNT://$groupSAM,group").Name
+            if ($groupExists) {
+                Add-LocalGroupMember -Group "Remote Desktop Users" -Member $groupSAM -ErrorAction Stop
+                Write-Host "✅ Group $groupSAM added to Remote Desktop Users."
+            }
+        } catch {
+            Write-Warning "❌ Group not found or format invalid: $groupSAM"
+        }
+
+    } elseif ($choice -eq 'user') {
+        $userInput = Read-Host "Enter username (User or Domain\\User)"
+        $userSAM = if ($userInput -like "*\\*") { $userInput } else { "$domain\\$userInput" }
+
+        try {
+            $userExists = ([ADSI]"WinNT://$userSAM,user").Name
+            if ($userExists) {
+                Add-LocalGroupMember -Group "Remote Desktop Users" -Member $userSAM -ErrorAction Stop
+                Write-Host "✅ User $userSAM added to Remote Desktop Users."
+            }
+        } catch {
+            Write-Warning "❌ User not found or format invalid: $userSAM"
+        }
+
+    } else {
+        Write-Warning "⚠ Invalid input. Must be 'group' or 'user'."
+    }
+} else {
+    Write-Host "➡ No changes made to RDP user access."
+}
+```
+
+
 ## 📦 Common Software Installers
 
 ### Install 7-Zip (x64)
