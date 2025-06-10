@@ -294,9 +294,44 @@ Rename-Computer -NewName "ADFS1" -Restart
 ### Join Domain
 
 ```powershell
-Add-Computer –DomainName "<domain name>" -Restart
-# Example:
-Add-Computer –DomainName "acetest.com" -DomainCredential ace\administrator -Restart
+# Ensure script is run as Administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole("Administrator")) {
+    Write-Warning "⚠ Please run this script as Administrator!"
+    exit
+}
+
+# Prompt for domain name
+$domainName = Read-Host "Enter the domain name you want to join (e.g. acetest.com)"
+
+# Prompt for domain credential securely
+Write-Host "Please enter credentials to join domain $domainName..."
+$domainCred = Get-Credential -Message "Enter Domain Admin credentials (e.g. ace\\administrator)"
+
+# Attempt to join domain
+try {
+    Add-Computer -DomainName $domainName -Credential $domainCred -Force
+    Write-Host "`n✅ Successfully joined domain: $domainName" -ForegroundColor Green
+} catch {
+    Write-Error "❌ Failed to join domain: $_"
+    exit
+}
+
+# Ask if user wants to rename the machine
+$rename = Read-Host "`nDo you want to rename this computer before restart? (y/n)"
+if ($rename -eq 'y') {
+    $newName = Read-Host "Enter the new computer name"
+    try {
+        Rename-Computer -NewName $newName -Force -DomainCredential $domainCred
+        Write-Host "✅ Successfully renamed to $newName" -ForegroundColor Green
+    } catch {
+        Write-Error "❌ Failed to rename computer: $_"
+        exit
+    }
+}
+
+# Restart to apply changes
+Write-Host "`nThe machine will now restart to apply domain changes..." -ForegroundColor Cyan
+Restart-Computer -Force
 ```
 
 ### Rename Domain-Joined Machine
